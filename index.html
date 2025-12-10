@@ -1,0 +1,846 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>FoxBurrowAI | AI data services for procurement</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --brand-dark: #003b40;
+        --brand-accent: #ff7a3c;
+        --brand-accent-2: #20c997;
+        --bg-soft: #f5f7fa;
+        --text-muted: #6b7280;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        background-color: var(--bg-soft);
+        color: #111827;
+        overflow-x: hidden;
+      }
+
+      /* NAVBAR */
+
+      .navbar {
+        box-shadow: 0 6px 20px rgba(15, 23, 42, 0.08);
+        background: #ffffff !important;
+      }
+
+      .navbar-brand {
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        font-size: 0.95rem;
+        color: var(--brand-dark) !important;
+      }
+
+      .navbar-brand .brand-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.1;
+      }
+
+      .navbar-brand .brand-text span {
+        display: block;
+        font-weight: 400;
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+        color: var(--text-muted);
+        text-transform: uppercase;
+      }
+
+      .brand-logo {
+        height: 32px;
+        width: auto;
+        margin-right: 0.5rem;
+      }
+
+      .nav-link {
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: #374151 !important;
+      }
+
+      .nav-link.active,
+      .nav-link:hover {
+        color: var(--brand-dark) !important;
+      }
+
+      .btn-nav-contact {
+        font-size: 0.9rem;
+        font-weight: 600;
+        border-radius: 999px;
+        padding-inline: 1.2rem;
+        background-color: var(--brand-accent);
+        border-color: var(--brand-accent);
+        color: #ffffff;
+      }
+
+      .btn-nav-contact:hover {
+        filter: brightness(1.03);
+        color: #ffffff;
+      }
+
+      /* HERO */
+
+      .hero-wrapper {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+            circle at top left,
+            rgba(32, 201, 151, 0.14),
+            transparent 55%
+          ),
+          radial-gradient(
+            circle at bottom right,
+            rgba(255, 122, 60, 0.16),
+            transparent 60%
+          ),
+          linear-gradient(135deg, #001f24 0%, #003b40 40%, #02151d 100%);
+        z-index: -1;
+      }
+
+      .hero {
+        padding: 4.5rem 0 3.5rem 0;
+        color: #ffffff;
+      }
+
+      .hero-eyebrow {
+        font-size: 0.85rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 0.75rem;
+      }
+
+      .hero h1 {
+        font-size: clamp(2rem, 3vw + 1rem, 2.8rem);
+        font-weight: 700;
+        line-height: 1.15;
+        margin-bottom: 1rem;
+      }
+
+      .hero-lead {
+        font-size: 1.02rem;
+        max-width: 640px;
+        color: rgba(255, 255, 255, 0.86);
+        margin-bottom: 1.5rem;
+      }
+
+      .hero-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.3rem 0.7rem;
+        border-radius: 999px;
+        background: rgba(15, 118, 110, 0.35);
+        font-size: 0.78rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 1rem;
+      }
+
+      .btn-hero-primary {
+        border-radius: 999px;
+        padding-inline: 1.6rem;
+        padding-block: 0.7rem;
+        font-weight: 600;
+        font-size: 0.95rem;
+        background-color: var(--brand-accent-2);
+        border-color: transparent;
+        color: #022c22;
+        box-shadow: 0 16px 40px rgba(16, 185, 129, 0.35);
+      }
+
+      .btn-hero-primary:hover {
+        filter: brightness(1.04);
+        color: #022c22;
+      }
+
+      .btn-hero-secondary {
+        border-radius: 999px;
+        padding-inline: 1.3rem;
+        padding-block: 0.7rem;
+        font-weight: 500;
+        font-size: 0.92rem;
+        color: #e5e7eb;
+        border: 1px solid rgba(209, 213, 219, 0.4);
+        background: rgba(15, 23, 42, 0.3);
+      }
+
+      .btn-hero-secondary:hover {
+        background: rgba(15, 23, 42, 0.55);
+        color: #ffffff;
+      }
+
+      .hero-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 1.75rem;
+        font-size: 0.8rem;
+        color: rgba(229, 231, 235, 0.8);
+      }
+
+      .hero-meta span {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+      }
+
+      .hero-card {
+        background: rgba(15, 23, 42, 0.7);
+        border-radius: 1.2rem;
+        padding: 1.2rem 1.3rem;
+        box-shadow: 0 24px 60px rgba(15, 23, 42, 0.55);
+        max-width: 420px;
+        margin-left: auto;
+      }
+
+      .hero-card-title {
+        font-size: 0.95rem;
+        font-weight: 600;
+        margin-bottom: 0.35rem;
+      }
+
+      .hero-stat-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-top: 0.5rem;
+        font-size: 0.86rem;
+      }
+
+      .hero-stat-number {
+        font-size: 1.25rem;
+        font-weight: 700;
+      }
+
+      .hero-stat-label {
+        font-size: 0.8rem;
+        color: #9ca3af;
+      }
+
+      .hero-badge-row {
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+        margin-top: 0.5rem;
+      }
+
+      .hero-badge {
+        font-size: 0.8rem;
+        color: #d1d5db;
+      }
+
+      /* CONTENT SECTIONS */
+
+      .section {
+        padding: 3.5rem 0 3.25rem 0;
+      }
+
+      .section-heading {
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+
+      .section-eyebrow {
+        font-size: 0.8rem;
+        letter-spacing: 0.16em;
+        color: var(--brand-dark);
+        text-transform: uppercase;
+        margin-bottom: 0.4rem;
+      }
+
+      .section-intro {
+        max-width: 640px;
+        color: var(--text-muted);
+        font-size: 0.95rem;
+      }
+
+      .pill-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin-top: 1rem;
+      }
+
+      .pill-list span {
+        font-size: 0.78rem;
+        padding: 0.25rem 0.75rem;
+        border-radius: 999px;
+        background: #e5f5f2;
+        color: #065f46;
+      }
+
+      .feature-grid {
+        margin-top: 2rem;
+      }
+
+      .feature-card {
+        background: #ffffff;
+        border-radius: 1rem;
+        padding: 1.3rem 1.2rem;
+        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+        height: 100%;
+      }
+
+      .feature-card h3 {
+        font-size: 1.05rem;
+        font-weight: 600;
+        margin-bottom: 0.35rem;
+      }
+
+      .feature-card p {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        margin-bottom: 0.4rem;
+      }
+
+      .feature-tag {
+        font-size: 0.74rem;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        color: #9ca3af;
+        margin-bottom: 0.2rem;
+      }
+
+      .feature-link {
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: var(--brand-dark);
+        text-decoration: none;
+      }
+
+      .feature-link:hover {
+        text-decoration: underline;
+      }
+
+      .story-card {
+        background: #ffffff;
+        border-radius: 1rem;
+        padding: 1.4rem 1.4rem;
+        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+        font-size: 0.9rem;
+        color: var(--text-muted);
+      }
+
+      .story-label {
+        font-size: 0.78rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: #9ca3af;
+        margin-bottom: 0.35rem;
+      }
+
+      .metric-chip-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin-top: 0.9rem;
+      }
+
+      .metric-chip {
+        font-size: 0.78rem;
+        padding: 0.25rem 0.7rem;
+        border-radius: 999px;
+        background: #ecfdf3;
+        color: #166534;
+      }
+
+      .note-text {
+        font-size: 0.8rem;
+        color: #6b7280;
+      }
+
+      /* FOOTER */
+
+      footer {
+        border-top: 1px solid #e5e7eb;
+        padding: 1.4rem 0;
+        font-size: 0.8rem;
+        color: #6b7280;
+        background: #ffffff;
+      }
+
+      footer a {
+        color: #4b5563;
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 991.98px) {
+        .hero {
+          padding-top: 3.2rem;
+        }
+
+        .hero-card {
+          margin-top: 2rem;
+          max-width: 100%;
+        }
+
+        .navbar-brand .brand-text span {
+          font-size: 0.72rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container">
+        <a
+          class="navbar-brand d-flex align-items-center"
+          href="index.html"
+        >
+          <img
+            src="logo.png"
+            alt="FoxBurrowAI logo"
+            class="brand-logo"
+          />
+          <div class="brand-text">
+            FoxBurrowAI
+            <span>AI data services</span>
+          </div>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNav"
+          aria-controls="mainNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto align-items-lg-center mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="index.html"
+                >Overview</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="dashboards.html">Dashboards</a>
+            </li>
+            <li class="nav-item me-lg-2">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <div class="hero-wrapper">
+      <div class="hero-bg"></div>
+      <section class="hero">
+        <div class="container">
+          <div class="row align-items-center gy-4">
+            <div class="col-lg-7">
+              <div class="hero-pill">
+                <span>Procurement data · Categorisation · Dashboards</span>
+              </div>
+              <div class="hero-eyebrow">
+                From messy spreadsheets to clean, auditable spend data
+              </div>
+              <h1>
+                Automated categorisation that behaves like a careful analyst –
+                just much faster.
+              </h1>
+              <p class="hero-lead">
+                FoxBurrowAI takes raw invoice and purchase-order exports and
+                turns them into rich, sensible spend categories, ready for
+                analysis and dashboards. The workflow was tested on real public
+                sector data and achieved high-quality results that stand up next
+                to a human analyst’s work.
+              </p>
+              <div class="hero-actions">
+                <a href="dashboards.html" class="btn btn-hero-primary">
+                  See the example dashboards
+                </a>
+                <a href="contact.html" class="btn btn-hero-secondary">
+                  Share a sample Excel file for a demo
+                </a>
+              </div>
+              <div class="hero-meta">
+                <span>≈99%+ of lines land in sensible categories from average raw data</span>
+                <span>Over 20× cheaper per line than a typical London analyst</span>
+                <span>Optional fully offline workflow for sensitive data</span>
+              </div>
+            </div>
+            <div class="col-lg-5">
+              <div class="hero-card">
+                <div class="hero-card-title">
+                  What the prototype has already shown
+                </div>
+                <p class="mb-2" style="font-size: 0.85rem; color: #d1d5db">
+                  The underlying research ran FoxBurrowAI’s workflow against a
+                  large public invoice dataset and compared it to a careful
+                  human baseline.
+                </p>
+                <div class="hero-stat-row">
+                  <div>
+                    <div class="hero-stat-number">High quality</div>
+                    <div class="hero-stat-label">
+                      Almost every row ends up in a sensible category. Remaining
+                      issues mostly come from poor or missing source
+                      descriptions rather than the process itself.
+                    </div>
+                  </div>
+                </div>
+                <div class="hero-badge-row">
+                  <div class="hero-badge">
+                    • Out-performed a non-specialist St Andrews MSc student
+                    doing thoughtful manual categorisation on the same data.
+                  </div>
+                  <div class="hero-badge">
+                    • Designed to behave like a diligent analyst, not a blind
+                    code-matcher.
+                  </div>
+                </div>
+                <hr
+                  style="
+                    border-color: rgba(148, 163, 184, 0.4);
+                    margin: 0.9rem 0;
+                  "
+                />
+                <div class="hero-stat-row">
+                  <div>
+                    <div class="hero-stat-number">From ~£0.075</div>
+                    <div class="hero-stat-label">
+                      Approx. £0.075 per line (≈$0.10) for full categorisation,
+                      versus ~£1.67 per line for a typical London analyst.
+                    </div>
+                  </div>
+                  <div style="text-align: right">
+                    <div class="hero-stat-number">At scale</div>
+                    <div class="hero-stat-label">
+                      The economics only get better as files grow larger.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- SECTION: RESULTS & APPROACH -->
+    <section class="section">
+      <div class="container">
+        <div class="row gy-4 align-items-start">
+          <div class="col-lg-6">
+            <div class="section-eyebrow">Results in plain language</div>
+            <h2 class="section-heading">
+              Quality on par with careful human work, without months of effort.
+            </h2>
+            <p class="section-intro">
+              The FoxBurrowAI workflow was stress-tested on a real government
+              invoice dataset with existing manual categories. The aim was
+              simple: “Would a procurement team feel comfortable using this as a
+              baseline classification?”
+            </p>
+            <ul class="mt-3" style="padding-left: 1.1rem; color: var(--text-muted); font-size: 0.94rem;">
+              <li class="mb-2">
+                Almost every line landed in a sensible category, even when the
+                original coding was inconsistent or approximate.
+              </li>
+              <li class="mb-2">
+                Most remaining discrepancies were driven by incomplete,
+                ambiguous, or generic descriptions – in other words, the input
+                data itself rather than the categorisation logic.
+              </li>
+              <li class="mb-2">
+                Compared with a diligent but non-specialist analyst (a St
+                Andrews MSc student), the automated process was at least as
+                strong overall, and more consistent when scaled to large files.
+              </li>
+              <li>
+                Explanations can be attached to each categorisation, so reviewers
+                can see how the decision was reached instead of trusting a
+                “mystery model”.
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-6">
+            <div class="feature-card">
+              <div class="feature-tag">Cost & speed</div>
+              <h3>Economics that unlock new levels of detail</h3>
+              <p>
+                A generous London rate for a human analyst might be around
+                <strong>£500 per day</strong> to categorise roughly
+                <strong>300 lines</strong>, or about <strong>£1.67 per line</strong>.
+              </p>
+              <p>
+                FoxBurrowAI offers categorisation from roughly
+                <strong>£0.075 per line (≈$0.10)</strong>, giving you more than
+                <strong>20×</strong> better cost-per-line while still aiming for
+                human-quality results.
+              </p>
+              <p>
+                Even after allowing for occasional review, prompt upkeep, and
+                infrastructure, it becomes realistic to deeply categorise
+                hundreds of thousands of rows that would never have been
+                inspected line-by-line by a human.
+              </p>
+              <div class="metric-chip-row">
+                <span class="metric-chip">Scale up without growing headcount</span>
+                <span class="metric-chip">Ideal for multi-year, multi-entity data</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: BEANS STORY -->
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <div class="row gy-4 align-items-start">
+          <div class="col-lg-6">
+            <div class="story-card">
+              <div class="story-label">Why this matters in practice</div>
+              <h3 class="section-heading" style="margin-bottom: 0.6rem;">
+                The peas that were coded as “green beans”
+              </h3>
+              <p>
+                In one public dataset, a line labelled by the original team as
+                “green beans” turned out – on closer inspection of the
+                description – to be <strong>garden peas</strong>.
+              </p>
+              <p>
+                This wasn’t malicious; it was simply a human under time pressure
+                using any code within the right L2 group (“Fresh vegetables”) to
+                get the job done. Across thousands of rows, these shortcuts add
+                up, especially at deeper category levels.
+              </p>
+              <p>
+                FoxBurrowAI focuses on the actual text on the line – “peas”,
+                not just “fresh veg” – and works systematically. That means you
+                can finally see where spend is really going:
+              </p>
+              <ul style="padding-left: 1.1rem;">
+                <li>Which specific vegetables are being bought</li>
+                <li>Which items are creeping up in price over time</li>
+                <li>Where suppliers might be over-charging on a narrow slice of spend</li>
+              </ul>
+              <p class="mb-0">
+                The point isn’t to embarrass anyone. It’s to show how easily
+                even conscientious humans slip into approximate coding – and how
+                automated categorisation can quietly keep everything aligned.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="feature-grid row g-3">
+              <div class="col-12">
+                <div class="feature-card">
+                  <div class="feature-tag">Choices & explanations</div>
+                  <h3>Ranked options instead of a single guess</h3>
+                  <p>
+                    Many descriptions have more than one reasonable home. In
+                    those cases, FoxBurrowAI can provide a
+                    <strong>ranked set of category options</strong> per line
+                    rather than a single forced decision.
+                  </p>
+                  <p>
+                    The workflow can propose several plausible paths through the
+                    hierarchy and attach a brief justification for each. Review
+                    teams then see:
+                  </p>
+                  <ul style="padding-left: 1.1rem;">
+                    <li>The primary category FoxBurrowAI recommends</li>
+                    <li>Alternative categories that would also make sense</li>
+                    <li>Short, human-readable explanations for each choice</li>
+                  </ul>
+                  <p class="mb-0">
+                    This keeps control firmly with you while removing the heavy
+                    lifting of thinking up categories from scratch.
+                  </p>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="feature-card">
+                  <div class="feature-tag">Security & deployment</div>
+                  <h3>Online or entirely offline – your choice</h3>
+                  <p>
+                    Some organisations are happy for data to leave their
+                    network; others aren’t. FoxBurrowAI can support both:
+                  </p>
+                  <ul style="padding-left: 1.1rem;">
+                    <li>
+                      A hosted workflow for standard projects, managed by
+                      FoxBurrowAI.
+                    </li>
+                    <li>
+                      A fully <strong>offline deployment</strong> where the
+                      entire process runs on your own infrastructure using
+                      in-house models. Data never needs to leave your
+                      environment.
+                    </li>
+                  </ul>
+                  <p class="mb-0">
+                    Either way, the goal is the same: reliable categorisation
+                    that your teams can trust, with appropriate guardrails and
+                    auditability.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: EXCEL & DASHBOARDS -->
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <div class="row gy-4 align-items-start">
+          <div class="col-lg-6">
+            <div class="section-eyebrow">Working with your data</div>
+            <h2 class="section-heading">
+              Built to cope with the reality of Excel exports.
+            </h2>
+            <p class="section-intro">
+              Real procurement data rarely comes as a neat, standardised table.
+              You get multi-sheet workbooks, varying column names, different
+              date formats, free-text descriptions, and the occasional “mystery”
+              column that still turns out to matter.
+            </p>
+            <ul class="mt-3" style="padding-left: 1.1rem; color: var(--text-muted); font-size: 0.94rem;">
+              <li class="mb-2">
+                FoxBurrowAI’s pipeline can automatically detect key fields
+                (supplier, description, amount, date) across a wide range of
+                Excel layouts.
+              </li>
+              <li class="mb-2">
+                You don’t need to pre-map everything to a fixed template first –
+                the workflow is designed to do much of that unglamorous work for
+                you.
+              </li>
+              <li class="mb-2">
+                For particularly complex files, a light touch of one-off setup
+                makes subsequent refreshes straightforward.
+              </li>
+            </ul>
+            <p class="note-text mt-2 mb-0">
+              Want to see how your own data behaves? Share a sample file and
+              we’ll run it through the process, returning a categorised extract
+              and an example dashboard.
+            </p>
+          </div>
+          <div class="col-lg-6">
+            <div class="feature-card">
+              <div class="feature-tag">Dashboards</div>
+              <h3>Custom dashboards with no logins or subscriptions</h3>
+              <p>
+                The dashboards on this site are built with Plotly Dash and
+                designed from the ground up for procurement use. They support:
+              </p>
+              <ul style="padding-left: 1.1rem; color: var(--text-muted); font-size: 0.94rem;">
+                <li>Time trends by month and year</li>
+                <li>Hierarchical category drill-down (L1–L4)</li>
+                <li>Key supplier views and summary metrics</li>
+                <li>One-click export of whatever you’re currently viewing</li>
+              </ul>
+              <p>
+                As part of a paid plan, FoxBurrowAI can provide
+                <strong>self-contained, offline dashboards</strong> tailored to
+                your data. They open in a web browser, require no user accounts,
+                and don’t depend on shared cloud servers.
+              </p>
+              <p class="mb-0">
+                That makes them ideal for sharing with non-technical
+                stakeholders or in environments where traditional BI tools and
+                user management are a constant friction.
+              </p>
+              <div class="mt-3">
+                <a href="dashboards.html" class="feature-link">
+                  Explore the example dashboards →
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: CTA -->
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <div class="row align-items-center gy-3">
+          <div class="col-lg-8">
+            <div class="section-eyebrow">Next step</div>
+            <h2 class="section-heading mb-1">
+              Have a spreadsheet that needs taming?
+            </h2>
+            <p class="section-intro mb-0">
+              Whether it’s a year of invoices or a multi-year, multi-entity
+              dataset, FoxBurrowAI can turn it into clean, sensible categories
+              and ready-to-use dashboards. Pricing typically starts from around
+              £0.075 per line for categorisation, with options for one-off
+              projects or ongoing refreshes.
+            </p>
+          </div>
+          <div class="col-lg-4 text-lg-end">
+            <a href="contact.html" class="btn btn-hero-primary mb-2">
+              Start a conversation
+            </a>
+            <br />
+            <a href="dashboards.html" class="btn btn-hero-secondary">
+              View example dashboards
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container d-flex flex-wrap justify-content-between">
+        <div>© 2025 FoxBurrowAI. All rights reserved.</div>
+        <div>
+          <a href="contact.html">Contact</a>
+          <span>·</span>
+          <span>AI data services for procurement teams</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
