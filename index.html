@@ -197,14 +197,36 @@
         color: #ffffff;
       }
 
-      .hero-meta {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.75rem;
-        margin-top: 1.75rem;
-        font-size: 0.8rem;
-        color: rgba(229, 231, 235, 0.8);
-      }
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.75rem;
+  font-size: 0.8rem;
+}
+
+.hero-meta-item {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.55);
+  border: 1px solid rgba(148, 163, 184, 0.5);
+}
+
+.hero-meta-label {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 600;
+  font-size: 0.7rem;
+  color: #e5e7eb;
+}
+
+.hero-meta-text {
+  color: rgba(229, 231, 235, 0.9);
+}
+
 
       .hero-meta span {
         display: inline-flex;
@@ -495,11 +517,27 @@
                   Share a sample Excel file for a demo
                 </a>
               </div>
-              <div class="hero-meta">
-                <span>≈99%+ of lines land in sensible categories from average raw data</span>
-                <span>Over 20× cheaper per line than a typical London analyst</span>
-                <span>Optional fully offline workflow for sensitive data</span>
-              </div>
+<div class="hero-meta">
+  <div class="hero-meta-item">
+    <span class="hero-meta-label">Quality</span>
+    <span class="hero-meta-text">
+      ≈99% of lines land in sensible categories from average raw data.
+    </span>
+  </div>
+  <div class="hero-meta-item">
+    <span class="hero-meta-label">Cost</span>
+    <span class="hero-meta-text">
+      Over 20× cheaper per line than a typical London analyst.
+    </span>
+  </div>
+  <div class="hero-meta-item">
+    <span class="hero-meta-label">Deployment</span>
+    <span class="hero-meta-text">
+      Optional fully offline workflow for sensitive data.
+    </span>
+  </div>
+</div>
+
             </div>
             <div class="col-lg-5">
               <div class="hero-card">
@@ -558,6 +596,47 @@
         </div>
       </section>
     </div>
+<!-- TOP INTRO: WHY PROCUREMENT DATA CATEGORISATION MATTERS -->
+<section class="section" style="padding: 2.2rem 0 1.5rem 0; background: #ffffff;">
+  <div class="container">
+    <div class="row gy-3 align-items-start">
+      <div class="col-lg-8">
+        <div class="section-eyebrow">Why this matters</div>
+        <h2 class="section-heading" style="margin-bottom: 0.6rem;">
+          Why businesses benefit from clean, well-categorised spend data
+        </h2>
+        <p class="section-intro" style="max-width: 720px;">
+          Most organisations have years of invoices, POs, and supplier payments - but very few have 
+          a clear view of what that money is actually buying. When thousands of lines sit in generic, 
+          inconsistent, or overly broad categories, opportunities remain hidden. Good categorisation 
+          turns raw transactions into usable insight.
+        </p>
+        <ul style="padding-left: 1.1rem; margin-top: 1rem; color: var(--text-muted); font-size: 0.94rem;">
+          <li class="mb-2">Spot genuine savings opportunities by seeing exactly where spend is going, not just broad buckets like “services” or “facilities”.</li>
+          <li class="mb-2">Identify price variation and over-charging - even small inconsistencies compound across hundreds of suppliers and thousands of lines.</li>
+          <li class="mb-2">Strengthen supplier negotiations with transparent, comparable, like-for-like category-level data.</li>
+          <li class="mb-2">Make budgets more reliable by understanding cost drivers rather than relying on historical spend alone.</li>
+          <li>Enable dashboards and analytics that uncover trends, cost spikes, waste, and consolidation opportunities.</li>
+        </ul>
+      </div>
+      <div class="col-lg-4">
+        <div class="feature-card">
+          <div class="feature-tag">Quick takeaway</div>
+          <h3>Why organisations invest in this</h3>
+          <p>
+            Clean categorisation often pays for itself quickly: even a 1–3% improvement in visibility 
+            across a multi-million-pound spend base translates into material savings, reduced waste, 
+            and better decision-making.
+          </p>
+          <p class="mb-0">
+            Without it, organisations end up running procurement with blurred vision - and miss the 
+            very areas where efficiencies and improved value lie.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- SECTION: RESULTS & APPROACH -->
     <section class="section">
@@ -591,8 +670,7 @@
               </li>
               <li>
                 Explanations can be attached to each categorisation, so reviewers
-                can see how the decision was reached instead of trusting a
-                “mystery model”.
+                can see how the decision was reached with full auditability.
               </li>
             </ul>
           </div>
@@ -635,7 +713,7 @@
             <div class="story-card">
               <div class="story-label">Why this matters in practice</div>
               <h3 class="section-heading" style="margin-bottom: 0.6rem;">
-                The peas that were coded as “green beans”
+                The peas that were categorised as “green beans”
               </h3>
               <p>
                 In one public dataset, a line labelled by the original team as
@@ -643,10 +721,10 @@
                 description – to be <strong>garden peas</strong>.
               </p>
               <p>
-                This wasn’t malicious; it was simply a human under time pressure
-                using any code within the right L2 group (“Fresh vegetables”) to
-                get the job done. Across thousands of rows, these shortcuts add
-                up, especially at deeper category levels.
+                It is likely whoever was working on this was either just incorrect or time constrained
+                in categorising many of these rows. This is not uncommon in procurement classification,
+                especially when being tasked to go all the way to L4. Across thousands of rows, these shortcuts add
+                up, especially at deeper category levels, making it impossible to know you are over paying for your specific veg.
               </p>
               <p>
                 FoxBurrowAI focuses on the actual text on the line – “peas”,
@@ -658,10 +736,29 @@
                 <li>Which items are creeping up in price over time</li>
                 <li>Where suppliers might be over-charging on a narrow slice of spend</li>
               </ul>
+            </div>
+
+            <!-- NEW BOX UNDER "WHY THIS MATTERS IN PRACTICE" -->
+            <div class="story-card mt-3">
+              <div class="story-label">Approach</div>
+              <h3 class="section-heading" style="margin-bottom: 0.6rem;">
+                Reasoning not regurgitation
+              </h3>
+              <p>
+                Unlike traditional auto data categorisation scripts or methodologies, we do not rely
+                entirely on past categorisations and vague matches. If the very normal errors you saw
+                in the Californian Government’s efforts are propagated throughout your future processes,
+                you will quickly find your accuracy in categorisation dropping.
+              </p>
+              <p>
+                This is also a major concern for any overly specific machine learning techniques trained
+                on large existing datasets. Many companies see large data histories as an invaluable
+                resource, but unless you are entirely comfortable in that data quality, the
+                “garbage in, garbage out” effect will quickly apply with AI.
+              </p>
               <p class="mb-0">
-                The point isn’t to embarrass anyone. It’s to show how easily
-                even conscientious humans slip into approximate coding – and how
-                automated categorisation can quietly keep everything aligned.
+                Advanced reasoning at the point of discovery proves to be far more effective on unseen
+                data than simply copying old patterns forward.
               </p>
             </div>
           </div>
@@ -707,10 +804,7 @@
                       FoxBurrowAI.
                     </li>
                     <li>
-                      A fully <strong>offline deployment</strong> where the
-                      entire process runs on your own infrastructure using
-                      in-house models. Data never needs to leave your
-                      environment.
+                      A fully <strong>offline deployment</strong> option is avaliable depending on your requirements. Your data will not be used to train models either way and will be securely stored.
                     </li>
                   </ul>
                   <p class="mb-0">
@@ -749,7 +843,7 @@
               </li>
               <li class="mb-2">
                 You don’t need to pre-map everything to a fixed template first –
-                the workflow is designed to do much of that unglamorous work for
+                the workflow is designed to perform that time intensive work for
                 you.
               </li>
               <li class="mb-2">
@@ -806,7 +900,7 @@
           <div class="col-lg-8">
             <div class="section-eyebrow">Next step</div>
             <h2 class="section-heading mb-1">
-              Have a spreadsheet that needs taming?
+              Want to burrow deeper into your data?
             </h2>
             <p class="section-intro mb-0">
               Whether it’s a year of invoices or a multi-year, multi-entity

@@ -20,6 +20,10 @@
         --text-muted: #6b7280;
       }
 
+      * {
+        box-sizing: border-box;
+      }
+
       body {
         margin: 0;
         font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -48,6 +52,15 @@
         line-height: 1.1;
       }
 
+      .navbar-brand .brand-text span {
+        display: block;
+        font-weight: 400;
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+        color: var(--text-muted);
+        text-transform: uppercase;
+      }
+
       .brand-logo {
         height: 32px;
         width: auto;
@@ -72,6 +85,11 @@
         padding-inline: 1.2rem;
         background-color: var(--brand-accent);
         border-color: var(--brand-accent);
+        color: #ffffff;
+      }
+
+      .btn-nav-contact:hover {
+        filter: brightness(1.03);
         color: #ffffff;
       }
 
@@ -109,8 +127,35 @@
         flex-direction: column;
       }
 
+      .dash-tag {
+        font-size: 0.74rem;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        color: #9ca3af;
+        margin-bottom: 0.3rem;
+      }
+
+      .dash-card h2 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 0.35rem;
+      }
+
+      .dash-card p {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        margin-bottom: 0.4rem;
+      }
+
+      .dash-meta {
+        font-size: 0.82rem;
+        color: #6b7280;
+        margin-top: 0.4rem;
+      }
+
       .btn-dash {
         margin-top: auto;
+        align-self: flex-start;
         border-radius: 999px;
         padding-inline: 1.4rem;
         padding-block: 0.55rem;
@@ -122,10 +167,30 @@
         box-shadow: 0 10px 26px rgba(16, 185, 129, 0.25);
       }
 
+      .btn-dash:hover {
+        filter: brightness(1.04);
+        color: #022c22;
+      }
+
+      .pill-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin-top: 1rem;
+      }
+
+      .pill-list span {
+        font-size: 0.78rem;
+        padding: 0.25rem 0.75rem;
+        border-radius: 999px;
+        background: #e5f5f2;
+        color: #065f46;
+      }
+
       .info-card {
         background: #ffffff;
         border-radius: 1rem;
-        padding: 1.2rem;
+        padding: 1.2rem 1.2rem;
         box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
         font-size: 0.88rem;
         color: var(--text-muted);
@@ -138,37 +203,64 @@
         color: #6b7280;
         background: #ffffff;
       }
+
+      footer a {
+        color: #4b5563;
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 991.98px) {
+        .navbar-brand .brand-text span {
+          font-size: 0.72rem;
+        }
+      }
     </style>
   </head>
-
   <body>
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container">
-        <a class="navbar-brand d-flex align-items-center" href="index.html">
-          <img src="logo.png" alt="FoxBurrowAI logo" class="brand-logo" />
+        <a
+          class="navbar-brand d-flex align-items-center"
+          href="index.html"
+        >
+          <img
+            src="logo.png"
+            alt="FoxBurrowAI logo"
+            class="brand-logo"
+          />
           <div class="brand-text">
             FoxBurrowAI
             <span>AI data services</span>
           </div>
         </a>
-
         <button
           class="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#mainNav"
+          aria-controls="mainNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="mainNav">
           <ul class="navbar-nav ms-auto align-items-lg-center mb-2 mb-lg-0">
             <li class="nav-item">
               <a class="nav-link" href="index.html">Overview</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="dashboards.html">Dashboards</a>
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="dashboards.html"
+                >Dashboards</a
+              >
             </li>
             <li class="nav-item me-lg-2">
               <a class="nav-link" href="contact.html">Contact</a>
@@ -178,18 +270,31 @@
       </div>
     </nav>
 
-    <!-- HERO -->
+    <!-- PAGE HERO -->
     <section class="page-hero">
       <div class="container">
-        <div class="section-eyebrow">Example dashboards</div>
-        <h1 class="section-heading">
-          Two views of the same spend: manual codes vs. FoxBurrowAI categorisation.
-        </h1>
-        <p class="section-intro mb-0">
-          These dashboards use a real public-sector invoice dataset. One view
-          preserves the original government codes, the other shows the same data
-          retagged using FoxBurrowAI categorisation.
-        </p>
+        <div class="row gy-3 align-items-start">
+          <div class="col-lg-8">
+            <div class="section-eyebrow">Example dashboards</div>
+            <h1 class="section-heading">
+              Two views of the same spend: manual codes vs. FoxBurrowAI
+              categorisation.
+            </h1>
+            <p class="section-intro mb-0">
+              These dashboards are built from a public-sector invoice dataset.
+              One uses the original government coding; the other uses
+              FoxBurrowAI’s automated categorisation. Click a button below to
+              open each dashboard in a new browser tab and explore:
+              time-series trends, hierarchical category drill-downs, key
+              suppliers, and filtered CSV export. Both full and filtered to specific L1-L4 datasets can be downloaded from these dashboards for you to compare like-for-like on how the AI workflow enchances data vs manual effort.
+            </p>
+            <div class="pill-list">
+              <span>No login required</span>
+              <span>Opens in a new tab</span>
+              <span>Fully interactive filters</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -197,19 +302,29 @@
     <section class="section" style="padding-top: 0;">
       <div class="container">
         <div class="row g-4">
-
-          <!-- GOV Dashboard -->
           <div class="col-lg-6">
             <div class="dash-card">
+              <div class="dash-tag">Example 1 · Baseline</div>
               <h2>Government-coded spend dashboard</h2>
               <p>
-                A baseline view showing how the dataset was originally coded.
-                Contains time-series charts, category drill-downs, supplier tables,
-                and export functionality.
+                This dashboard shows the dataset using the original government
+                categorisations. It’s a realistic view of how public spend often
+                looks today: useful, but with many approximate or inconsistent
+                codes in the deeper levels.
               </p>
+              <ul style="padding-left: 1.1rem; font-size: 0.88rem; color: var(--text-muted);">
+                <li>Monthly total spend over time</li>
+                <li>Category hierarchy based on original codes</li>
+                <li>Key supplier table with row counts and spend</li>
+                <li>Filters for supplier, department, year, and category</li>
+              </ul>
+              <div class="dash-meta">
+                Use this view to get a feel for the starting point your own data
+                might be in before applying automated categorisation.
+              </div>
               <a
                 class="btn btn-dash mt-3"
-                href="https://foxburrowai-gov.onrender.com/"
+                href="http://localhost:8051/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -217,18 +332,30 @@
               </a>
             </div>
           </div>
-
-          <!-- RETAG Dashboard -->
           <div class="col-lg-6">
             <div class="dash-card">
+              <div class="dash-tag">Example 2 · FoxBurrowAI</div>
               <h2>FoxBurrowAI retagged spend dashboard</h2>
               <p>
-                The same dataset, fully reclassified using FoxBurrowAI workflow.
-                Cleaner hierarchy, consistent drilling, and improved category logic.
+                This dashboard uses the same raw invoices, but the categories
+                have been re-assigned by the FoxBurrowAI workflow. It highlights
+                how much cleaner and more consistent the hierarchy becomes when
+                every line is revisited systematically.
               </p>
+              <ul style="padding-left: 1.1rem; font-size: 0.88rem; color: var(--text-muted);">
+                <li>Same filters and layout as the baseline view</li>
+                <li>Improved categorisation at L1–L4 levels</li>
+                <li>More coherent supplier and category splits</li>
+                <li>Designed to be directly comparable to the baseline</li>
+              </ul>
+              <div class="dash-meta">
+                This is the kind of output you would receive on your own spend:
+                a cleaned, consistent view that still reflects the nuances of
+                your data, not a generic template.
+              </div>
               <a
                 class="btn btn-dash mt-3"
-                href="https://foxburrowai-retag.onrender.com/"
+                href="http://localhost:8052/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -236,7 +363,34 @@
               </a>
             </div>
           </div>
+        </div>
 
+        <div class="row mt-4">
+          <div class="col-lg-8">
+            <div class="info-card">
+              <strong>How this translates to client work</strong>
+              <p class="mb-2 mt-2">
+                For real projects, FoxBurrowAI can deliver dashboards like these
+                as:
+              </p>
+              <ul style="padding-left: 1.1rem;">
+                <li>
+                  Hosted dashboards on an agreed URL, for ongoing refreshes.
+                </li>
+                <li>
+                  Self-contained, offline dashboards locked to a specific
+                  dataset, ideal for one-off deliverables or highly sensitive
+                  environments.
+                </li>
+              </ul>
+              <p class="mb-0">
+                Unlike many traditional BI tools that rely on shared cloud
+                servers and user management, these dashboards can be shipped as
+                simple, double-click applications that open in a browser and
+                just work – no accounts needed.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
