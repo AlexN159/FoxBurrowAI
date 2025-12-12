@@ -78,21 +78,6 @@
         color: var(--brand-dark) !important;
       }
 
-      .btn-nav-contact {
-        font-size: 0.9rem;
-        font-weight: 600;
-        border-radius: 999px;
-        padding-inline: 1.2rem;
-        background-color: var(--brand-accent);
-        border-color: var(--brand-accent);
-        color: #ffffff;
-      }
-
-      .btn-nav-contact:hover {
-        filter: brightness(1.03);
-        color: #ffffff;
-      }
-
       .page-hero {
         padding: 3rem 0 2.5rem 0;
       }
@@ -150,12 +135,10 @@
       .dash-meta {
         font-size: 0.82rem;
         color: #6b7280;
-        margin-top: 0.4rem;
+        margin-top: 0.6rem;
       }
 
       .btn-dash {
-        margin-top: auto;
-        align-self: flex-start;
         border-radius: 999px;
         padding-inline: 1.4rem;
         padding-block: 0.55rem;
@@ -165,6 +148,7 @@
         border-color: transparent;
         color: #022c22;
         box-shadow: 0 10px 26px rgba(16, 185, 129, 0.25);
+        text-decoration: none;
       }
 
       .btn-dash:hover {
@@ -190,7 +174,7 @@
       .info-card {
         background: #ffffff;
         border-radius: 1rem;
-        padding: 1.2rem 1.2rem;
+        padding: 1.2rem;
         box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
         font-size: 0.88rem;
         color: var(--text-muted);
@@ -203,128 +187,55 @@
         color: #6b7280;
         background: #ffffff;
       }
-
-      footer a {
-        color: #4b5563;
-        text-decoration: none;
-      }
-
-      footer a:hover {
-        text-decoration: underline;
-      }
-
-      @media (max-width: 991.98px) {
-        .navbar-brand .brand-text span {
-          font-size: 0.72rem;
-        }
-      }
     </style>
   </head>
+
   <body>
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container">
-        <a
-          class="navbar-brand d-flex align-items-center"
-          href="index.html"
-        >
-          <img
-            src="logo.png"
-            alt="FoxBurrowAI logo"
-            class="brand-logo"
-          />
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <img src="logo.png" alt="FoxBurrowAI logo" class="brand-logo" />
           <div class="brand-text">
             FoxBurrowAI
             <span>AI data services</span>
           </div>
         </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#mainNav"
-          aria-controls="mainNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="mainNav">
-          <ul class="navbar-nav ms-auto align-items-lg-center mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Overview</a>
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link active"
-                aria-current="page"
-                href="dashboards.html"
-                >Dashboards</a
-              >
-            </li>
-            <li class="nav-item me-lg-2">
-              <a class="nav-link" href="contact.html">Contact</a>
-            </li>
-          </ul>
-        </div>
       </div>
     </nav>
 
-    <!-- PAGE HERO -->
+    <!-- HERO -->
     <section class="page-hero">
       <div class="container">
-        <div class="row gy-3 align-items-start">
-          <div class="col-lg-8">
-            <div class="section-eyebrow">Example dashboards</div>
-            <h1 class="section-heading">
-              Two views of the same spend: manual codes vs. FoxBurrowAI
-              categorisation.
-            </h1>
-            <p class="section-intro mb-0">
-              These dashboards are built from a public-sector invoice dataset.
-              One uses the original government coding; the other uses
-              FoxBurrowAI’s automated categorisation. Click a button below to
-              open each dashboard in a new browser tab and explore:
-              time-series trends, hierarchical category drill-downs, key
-              suppliers, and filtered CSV export. Both full and filtered to specific L1-L4 datasets can be downloaded from these dashboards for you to compare like-for-like on how the AI workflow enchances data vs manual effort.
-            </p>
-            <div class="pill-list">
-              <span>No login required</span>
-              <span>Opens in a new tab</span>
-              <span>Fully interactive filters</span>
-            </div>
-          </div>
+        <div class="section-eyebrow">Example dashboards</div>
+        <h1 class="section-heading">
+          Manual government codes vs. FoxBurrowAI categorisation
+        </h1>
+        <p class="section-intro">
+          Two dashboards built from the same public-sector invoice dataset:
+          one using original government coding, the other using FoxBurrowAI’s
+          automated categorisation workflow.
+        </p>
+        <div class="pill-list">
+          <span>No login required</span>
+          <span>Interactive filters</span>
+          <span>CSV export available</span>
         </div>
       </div>
     </section>
 
-    <!-- DASHBOARD CARDS -->
+    <!-- DASHBOARDS -->
     <section class="section" style="padding-top: 0;">
       <div class="container">
         <div class="row g-4">
           <div class="col-lg-6">
             <div class="dash-card">
-              <div class="dash-tag">Example 1 · Baseline</div>
-              <h2>Government-coded spend dashboard</h2>
-              <p>
-                This dashboard shows the dataset using the original government
-                categorisations. It’s a realistic view of how public spend often
-                looks today: useful, but with many approximate or inconsistent
-                codes in the deeper levels.
-              </p>
-              <ul style="padding-left: 1.1rem; font-size: 0.88rem; color: var(--text-muted);">
-                <li>Monthly total spend over time</li>
-                <li>Category hierarchy based on original codes</li>
-                <li>Key supplier table with row counts and spend</li>
-                <li>Filters for supplier, department, year, and category</li>
-              </ul>
-              <div class="dash-meta">
-                Use this view to get a feel for the starting point your own data
-                might be in before applying automated categorisation.
-              </div>
+              <div class="dash-tag">Baseline</div>
+              <h2>Government-coded spend</h2>
+              <p>Original public-sector categorisations as supplied.</p>
               <a
-                class="btn btn-dash mt-3"
-                href="http://localhost:8051/"
+                class="btn btn-dash mt-auto"
+                href="http://vfish.niemira.com:8051/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -332,30 +243,15 @@
               </a>
             </div>
           </div>
+
           <div class="col-lg-6">
             <div class="dash-card">
-              <div class="dash-tag">Example 2 · FoxBurrowAI</div>
-              <h2>FoxBurrowAI retagged spend dashboard</h2>
-              <p>
-                This dashboard uses the same raw invoices, but the categories
-                have been re-assigned by the FoxBurrowAI workflow. It highlights
-                how much cleaner and more consistent the hierarchy becomes when
-                every line is revisited systematically.
-              </p>
-              <ul style="padding-left: 1.1rem; font-size: 0.88rem; color: var(--text-muted);">
-                <li>Same filters and layout as the baseline view</li>
-                <li>Improved categorisation at L1–L4 levels</li>
-                <li>More coherent supplier and category splits</li>
-                <li>Designed to be directly comparable to the baseline</li>
-              </ul>
-              <div class="dash-meta">
-                This is the kind of output you would receive on your own spend:
-                a cleaned, consistent view that still reflects the nuances of
-                your data, not a generic template.
-              </div>
+              <div class="dash-tag">FoxBurrowAI</div>
+              <h2>AI-retagged spend</h2>
+              <p>Same invoices, fully reclassified using AI-assisted review.</p>
               <a
-                class="btn btn-dash mt-3"
-                href="http://localhost:8052/"
+                class="btn btn-dash mt-auto"
+                href="http://vfish.niemira.com:8052/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -365,29 +261,58 @@
           </div>
         </div>
 
+        <!-- DOWNLOADS -->
+        <div class="row mt-4">
+          <div class="col-lg-8">
+            <div class="dash-card">
+              <div class="dash-tag">Downloads</div>
+              <h2>Example datasets</h2>
+              <p>
+                Download the raw and retagged datasets used to build the dashboards.
+              </p>
+
+              <div class="d-flex flex-column gap-2 mt-3">
+                <a
+                  class="btn btn-dash"
+                  href="data/Cali_data_Original_Classification.csv"
+                  download
+                >
+                  Download original classification (CSV)
+                </a>
+
+                <a
+                  class="btn btn-dash"
+                  href="data/Cali_data_FoxBurrowAI_Retagged_Classification.xlsx"
+                  download
+                >
+                  Download FoxBurrowAI retagged data (Excel)
+                </a>
+
+                <a
+                  class="btn btn-dash"
+                  href="data/DetailedClassificationExamples.xlsx"
+                  download
+                >
+                  Download detailed classification examples (Excel) - 100 rows, including explanations
+                </a>
+              </div>
+
+              <div class="dash-meta">
+                Files open locally in Excel or compatible tools.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- INFO -->
         <div class="row mt-4">
           <div class="col-lg-8">
             <div class="info-card">
               <strong>How this translates to client work</strong>
-              <p class="mb-2 mt-2">
-                For real projects, FoxBurrowAI can deliver dashboards like these
-                as:
-              </p>
-              <ul style="padding-left: 1.1rem;">
-                <li>
-                  Hosted dashboards on an agreed URL, for ongoing refreshes.
-                </li>
-                <li>
-                  Self-contained, offline dashboards locked to a specific
-                  dataset, ideal for one-off deliverables or highly sensitive
-                  environments.
-                </li>
-              </ul>
-              <p class="mb-0">
-                Unlike many traditional BI tools that rely on shared cloud
-                servers and user management, these dashboards can be shipped as
-                simple, double-click applications that open in a browser and
-                just work – no accounts needed.
+              <p class="mt-2 mb-0">
+                Dashboards can be delivered as hosted URLs or fully offline,
+                self-contained applications — no accounts or shared servers
+                required.
               </p>
             </div>
           </div>
@@ -397,13 +322,9 @@
 
     <!-- FOOTER -->
     <footer>
-      <div class="container d-flex flex-wrap justify-content-between">
-        <div>© 2025 FoxBurrowAI. All rights reserved.</div>
-        <div>
-          <a href="contact.html">Contact</a>
-          <span>·</span>
-          <span>Example dashboards built with Plotly Dash</span>
-        </div>
+      <div class="container d-flex justify-content-between">
+        <div>© 2025 FoxBurrowAI</div>
+        <div>Example dashboards built with Plotly Dash</div>
       </div>
     </footer>
 
