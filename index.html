@@ -197,36 +197,35 @@
         color: #ffffff;
       }
 
-.hero-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-top: 1.75rem;
-  font-size: 0.8rem;
-}
+      .hero-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        margin-top: 1.75rem;
+        font-size: 0.8rem;
+      }
 
-.hero-meta-item {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0.35rem;
-  padding: 0.35rem 0.8rem;
-  border-radius: 999px;
-  background: rgba(15, 23, 42, 0.55);
-  border: 1px solid rgba(148, 163, 184, 0.5);
-}
+      .hero-meta-item {
+        display: inline-flex;
+        align-items: baseline;
+        gap: 0.35rem;
+        padding: 0.35rem 0.8rem;
+        border-radius: 999px;
+        background: rgba(15, 23, 42, 0.55);
+        border: 1px solid rgba(148, 163, 184, 0.5);
+      }
 
-.hero-meta-label {
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  font-weight: 600;
-  font-size: 0.7rem;
-  color: #e5e7eb;
-}
+      .hero-meta-label {
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-weight: 600;
+        font-size: 0.7rem;
+        color: #e5e7eb;
+      }
 
-.hero-meta-text {
-  color: rgba(229, 231, 235, 0.9);
-}
-
+      .hero-meta-text {
+        color: rgba(229, 231, 235, 0.9);
+      }
 
       .hero-meta span {
         display: inline-flex;
@@ -439,15 +438,8 @@
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container">
-        <a
-          class="navbar-brand d-flex align-items-center"
-          href="index.html"
-        >
-          <img
-            src="logo.png"
-            alt="FoxBurrowAI logo"
-            class="brand-logo"
-          />
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <img src="logo.png" alt="FoxBurrowAI logo" class="brand-logo" />
           <div class="brand-text">
             FoxBurrowAI
             <span>AI data services</span>
@@ -467,10 +459,7 @@
         <div class="collapse navbar-collapse" id="mainNav">
           <ul class="navbar-nav ms-auto align-items-lg-center mb-2 mb-lg-0">
             <li class="nav-item">
-              <a
-                class="nav-link active"
-                aria-current="page"
-                href="index.html"
+              <a class="nav-link active" aria-current="page" href="index.html"
                 >Overview</a
               >
             </li>
@@ -498,16 +487,20 @@
               <div class="hero-eyebrow">
                 From messy spreadsheets to clean, auditable spend data
               </div>
-              <h1>
-                Automated categorisation that behaves like a careful analyst –
-                just much faster.
-              </h1>
+              <h1>AI categorisation that reasons like a careful analyst.</h1>
               <p class="hero-lead">
                 FoxBurrowAI takes raw invoice and purchase-order exports and
-                turns them into rich, sensible spend categories, ready for
-                analysis and dashboards. The workflow was tested on real public
-                sector data and achieved high-quality results that stand up next
-                to a human analyst’s work.
+                turns them into rich, sensible spend categories (aligned to
+                <a
+                  href="https://www.undp.org/unspsc"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style="color: rgba(255, 255, 255, 0.92); text-decoration: underline;"
+                  >UNSPSC</a
+                >),
+                ready for analysis and dashboards. The workflow was tested on real public
+                sector data and achieved high-quality results that out perform a human
+                analyst’s work.
               </p>
               <div class="hero-actions">
                 <a href="dashboards.html" class="btn btn-hero-primary">
@@ -517,27 +510,26 @@
                   Share a sample Excel file for a demo
                 </a>
               </div>
-<div class="hero-meta">
-  <div class="hero-meta-item">
-    <span class="hero-meta-label">Quality</span>
-    <span class="hero-meta-text">
-      ≈99% of lines land in sensible categories from average raw data.
-    </span>
-  </div>
-  <div class="hero-meta-item">
-    <span class="hero-meta-label">Cost</span>
-    <span class="hero-meta-text">
-      Over 20× cheaper per line than a typical London analyst.
-    </span>
-  </div>
-  <div class="hero-meta-item">
-    <span class="hero-meta-label">Deployment</span>
-    <span class="hero-meta-text">
-      Optional fully offline workflow for sensitive data.
-    </span>
-  </div>
-</div>
-
+              <div class="hero-meta">
+                <div class="hero-meta-item">
+                  <span class="hero-meta-label">Quality</span>
+                  <span class="hero-meta-text">
+                    ≈99% of lines land in sensible categories from average raw data.
+                  </span>
+                </div>
+                <div class="hero-meta-item">
+                  <span class="hero-meta-label">Cost</span>
+                  <span class="hero-meta-text">
+                    Over 20× cheaper per line than a typical London analyst.
+                  </span>
+                </div>
+                <div class="hero-meta-item">
+                  <span class="hero-meta-label">Deployment</span>
+                  <span class="hero-meta-text">
+                    Optional fully offline workflow for sensitive data.
+                  </span>
+                </div>
+              </div>
             </div>
             <div class="col-lg-5">
               <div class="hero-card">
@@ -596,47 +588,48 @@
         </div>
       </section>
     </div>
-<!-- TOP INTRO: WHY PROCUREMENT DATA CATEGORISATION MATTERS -->
-<section class="section" style="padding: 2.2rem 0 1.5rem 0; background: #ffffff;">
-  <div class="container">
-    <div class="row gy-3 align-items-start">
-      <div class="col-lg-8">
-        <div class="section-eyebrow">Why this matters</div>
-        <h2 class="section-heading" style="margin-bottom: 0.6rem;">
-          Why businesses benefit from clean, well-categorised spend data
-        </h2>
-        <p class="section-intro" style="max-width: 720px;">
-          Most organisations have years of invoices, POs, and supplier payments - but very few have 
-          a clear view of what that money is actually buying. When thousands of lines sit in generic, 
-          inconsistent, or overly broad categories, opportunities remain hidden. Good categorisation 
-          turns raw transactions into usable insight.
-        </p>
-        <ul style="padding-left: 1.1rem; margin-top: 1rem; color: var(--text-muted); font-size: 0.94rem;">
-          <li class="mb-2">Spot genuine savings opportunities by seeing exactly where spend is going, not just broad buckets like “services” or “facilities”.</li>
-          <li class="mb-2">Identify price variation and over-charging - even small inconsistencies compound across hundreds of suppliers and thousands of lines.</li>
-          <li class="mb-2">Strengthen supplier negotiations with transparent, comparable, like-for-like category-level data.</li>
-          <li class="mb-2">Make budgets more reliable by understanding cost drivers rather than relying on historical spend alone.</li>
-          <li>Enable dashboards and analytics that uncover trends, cost spikes, waste, and consolidation opportunities.</li>
-        </ul>
-      </div>
-      <div class="col-lg-4">
-        <div class="feature-card">
-          <div class="feature-tag">Quick takeaway</div>
-          <h3>Why organisations invest in this</h3>
-          <p>
-            Clean categorisation often pays for itself quickly: even a 1–3% improvement in visibility 
-            across a multi-million-pound spend base translates into material savings, reduced waste, 
-            and better decision-making.
-          </p>
-          <p class="mb-0">
-            Without it, organisations end up running procurement with blurred vision - and miss the 
-            very areas where efficiencies and improved value lie.
-          </p>
+
+    <!-- TOP INTRO: WHY PROCUREMENT DATA CATEGORISATION MATTERS -->
+    <section class="section" style="padding: 2.2rem 0 1.5rem 0; background: #ffffff;">
+      <div class="container">
+        <div class="row gy-3 align-items-start">
+          <div class="col-lg-8">
+            <div class="section-eyebrow">Why this matters</div>
+            <h2 class="section-heading" style="margin-bottom: 0.6rem;">
+              Why businesses benefit from clean, well-categorised spend data
+            </h2>
+            <p class="section-intro" style="max-width: 720px;">
+              Most organisations have years of invoices, POs, and supplier payments - but very few have
+              a clear view of what that money is actually buying. When thousands of lines sit in generic,
+              inconsistent, or overly broad categories, opportunities remain hidden. Good categorisation
+              turns raw transactions into usable insight.
+            </p>
+            <ul style="padding-left: 1.1rem; margin-top: 1rem; color: var(--text-muted); font-size: 0.94rem;">
+              <li class="mb-2">Spot genuine savings opportunities by seeing exactly where spend is going, not just broad buckets like “services” or “facilities”.</li>
+              <li class="mb-2">Identify price variation and over-charging - even small inconsistencies compound across hundreds of suppliers and thousands of lines.</li>
+              <li class="mb-2">Strengthen supplier negotiations with transparent, comparable, like-for-like category-level data.</li>
+              <li class="mb-2">Make budgets more reliable by understanding cost drivers rather than relying on historical spend alone.</li>
+              <li>Enable dashboards and analytics that uncover trends, cost spikes, waste, and consolidation opportunities.</li>
+            </ul>
+          </div>
+          <div class="col-lg-4">
+            <div class="feature-card">
+              <div class="feature-tag">Quick takeaway</div>
+              <h3>Why organisations invest in this</h3>
+              <p>
+                Clean categorisation often pays for itself quickly: even a 1–3% improvement in visibility
+                across a multi-million-pound spend base translates into material savings, reduced waste,
+                and better decision-making.
+              </p>
+              <p class="mb-0">
+                Without it, organisations end up running procurement with blurred vision - and miss the
+                very areas where efficiencies and improved value lie.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
     <!-- SECTION: RESULTS & APPROACH -->
     <section class="section">
@@ -690,6 +683,17 @@
                 human-quality results.
               </p>
               <p>
+                Outputs can be delivered in a multi-level procurement taxonomy aligned to
+                <a
+                  href="https://www.undp.org/unspsc"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >UNSPSC</a
+                >
+                (L1–L4 style hierarchies), so teams can compare across suppliers, time periods,
+                and business units using a consistent standard.
+              </p>
+              <p>
                 Even after allowing for occasional review, prompt upkeep, and
                 infrastructure, it becomes realistic to deeply categorise
                 hundreds of thousands of rows that would never have been
@@ -704,6 +708,9 @@
         </div>
       </div>
     </section>
+
+
+
 
     <!-- SECTION: BEANS STORY -->
     <section class="section" style="padding-top: 0;">
