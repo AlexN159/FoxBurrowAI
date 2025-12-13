@@ -201,6 +201,34 @@
             <span>AI data services</span>
           </div>
         </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNav"
+          aria-controls="mainNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto align-items-lg-center mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Overview</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="dashboards.html"
+                >Dashboards</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
 
@@ -211,20 +239,48 @@
         <h1 class="section-heading">
           Manual government codes vs. FoxBurrowAI categorisation
         </h1>
-<p class="section-intro">
-  Two dashboards built from the same public-sector invoice dataset:
-  one using original government coding, the other using FoxBurrowAI’s
-  automated categorisation workflow.
-</p>
 
-<div class="alert alert-warning mt-3 mb-0" role="alert" style="max-width: 720px;">
-  <strong>Note:</strong> These online hosted example dashboards may run slowly.
-  Please download the full (less than 1gb) zip file for both dashboards in the offline,
-  Nuitka-built executable. This compiled version can be run in a single click and is
-  significantly faster (Python → C → native code).
-</div>
+        <p class="section-intro">
+          Two dashboards built from the same public-sector invoice dataset:
+          one using original government coding, the other using FoxBurrowAI’s
+          automated categorisation workflow. Note the retagging was done with no
+          guidance from the original categorisation.
+        </p>
 
-<div class="pill-list">
+        <div
+          class="alert alert-warning mt-3 mb-0"
+          role="alert"
+          style="max-width: 720px;"
+        >
+          <strong>Note:</strong> These online hosted example dashboards may run slowly.
+          For best performance, download the offline, Nuitka-built executables (Python → C → native code).
+
+          <div class="d-flex flex-column flex-sm-row gap-2 mt-3">
+            <a
+              class="btn btn-dash"
+              href="https://github.com/AlexN159/FoxBurrowAI/releases/download/FoxburrowAI/GOV.zip"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Download offline GOV dashboard (ZIP)
+            </a>
+
+            <a
+              class="btn btn-dash"
+              href="https://github.com/AlexN159/FoxBurrowAI/releases/download/FoxburrowAI/RETAG.zip"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Download offline RETAG dashboard (ZIP)
+            </a>
+          </div>
+
+          <div class="mt-2" style="font-size: 0.88rem;">
+
+          </div>
+        </div>
+
+        <div class="pill-list">
           <span>No login required</span>
           <span>Interactive filters</span>
           <span>CSV export available</span>
@@ -276,7 +332,7 @@
               <div class="dash-tag">Downloads</div>
               <h2>Example datasets</h2>
               <p>
-                Download the raw and recategorised datasets used to build the dashboards. If you would like a standalone offline version of these dashboards to test performance or dig deeper, please contact us.
+                Download the raw and recategorised datasets used to build the dashboards.
               </p>
 
               <div class="d-flex flex-column gap-2 mt-3">
