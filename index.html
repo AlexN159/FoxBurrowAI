@@ -227,12 +227,6 @@
         color: rgba(229, 231, 235, 0.9);
       }
 
-      .hero-meta span {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.35rem;
-      }
-
       .hero-card {
         background: rgba(15, 23, 42, 0.7);
         border-radius: 1.2rem;
@@ -399,6 +393,31 @@
         color: #6b7280;
       }
 
+      /* Comparisons table */
+      .comparison-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        overflow: hidden;
+        border-radius: 0.9rem;
+        border: 1px solid #e5e7eb;
+        background: #ffffff;
+        font-size: 0.92rem;
+      }
+      .comparison-table th,
+      .comparison-table td {
+        padding: 0.75rem 0.85rem;
+        border-bottom: 1px solid #e5e7eb;
+      }
+      .comparison-table th {
+        background: #f8fafc;
+        color: #111827;
+        font-weight: 600;
+      }
+      .comparison-table tr:last-child td {
+        border-bottom: none;
+      }
+
       /* FOOTER */
 
       footer {
@@ -434,6 +453,7 @@
       }
     </style>
   </head>
+
   <body>
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-light">
@@ -498,9 +518,7 @@
                   style="color: rgba(255, 255, 255, 0.92); text-decoration: underline;"
                   >UNSPSC</a
                 >),
-                ready for analysis and dashboards. The workflow was tested on real public
-                sector data and achieved high-quality results that out perform a human
-                analyst’s work.
+                ready for analysis and dashboards.
               </p>
               <div class="hero-actions">
                 <a href="dashboards.html" class="btn btn-hero-primary">
@@ -531,6 +549,7 @@
                 </div>
               </div>
             </div>
+
             <div class="col-lg-5">
               <div class="hero-card">
                 <div class="hero-card-title">
@@ -546,15 +565,15 @@
                     <div class="hero-stat-number">High quality</div>
                     <div class="hero-stat-label">
                       Almost every row ends up in a sensible category. Remaining
-                      issues mostly come from poor or missing source
-                      descriptions rather than the process itself.
+                      issues mostly come from poor or missing source descriptions
+                      rather than the process itself.
                     </div>
                   </div>
                 </div>
                 <div class="hero-badge-row">
                   <div class="hero-badge">
-                    • Out-performed a non-specialist St Andrews MSc student
-                    doing thoughtful manual categorisation on the same data.
+                    • Out-performed a non-specialist analyst doing thoughtful
+                    manual categorisation on the same data.
                   </div>
                   <div class="hero-badge">
                     • Designed to behave like a diligent analyst, not a blind
@@ -584,6 +603,7 @@
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </section>
@@ -631,86 +651,98 @@
       </div>
     </section>
 
-    <!-- SECTION: RESULTS & APPROACH -->
+    <!-- SECTION: COMPARISONS -->
     <section class="section">
       <div class="container">
         <div class="row gy-4 align-items-start">
           <div class="col-lg-6">
-            <div class="section-eyebrow">Results in plain language</div>
+            <div class="section-eyebrow">Comparisons</div>
             <h2 class="section-heading">
-              Quality on par with careful human work, without months of effort.
+              FoxBurrowAI vs human analysts vs “just ask an LLM”
             </h2>
             <p class="section-intro">
-              The FoxBurrowAI workflow was stress-tested on a real government
-              invoice dataset with existing manual categories. The aim was
-              simple: “Would a procurement team feel comfortable using this as a
-              baseline classification?”
+              Categorisation is only useful if it holds up under real scrutiny — especially at deeper levels
+              like L3/L4 where mistakes are easy to hide. Below are two practical comparisons.
             </p>
-            <ul class="mt-3" style="padding-left: 1.1rem; color: var(--text-muted); font-size: 0.94rem;">
-              <li class="mb-2">
-                Almost every line landed in a sensible category, even when the
-                original coding was inconsistent or approximate.
-              </li>
-              <li class="mb-2">
-                Most remaining discrepancies were driven by incomplete,
-                ambiguous, or generic descriptions – in other words, the input
-                data itself rather than the categorisation logic.
-              </li>
-              <li class="mb-2">
-                Compared with a diligent but non-specialist analyst (a St
-                Andrews MSc student), the automated process was at least as
-                strong overall, and more consistent when scaled to large files.
-              </li>
-              <li>
-                Explanations can be attached to each categorisation, so reviewers
-                can see how the decision was reached with full auditability.
-              </li>
-            </ul>
+
+            <div class="feature-card mt-3">
+              <div class="feature-tag">FoxBurrowAI vs human</div>
+              <h3>Competitive with careful human work</h3>
+              <p>
+                On a real public-sector invoice dataset with existing manual categories, FoxBurrowAI
+                produced results that were comparable to — and in places more consistent than —
+                a diligent but non-specialist human analyst working line-by-line.
+              </p>
+              <ul style="padding-left: 1.1rem; color: var(--text-muted); font-size: 0.94rem;">
+                <li class="mb-2">
+                  Almost every line landed in a sensible category even when original coding was inconsistent.
+                </li>
+                <li class="mb-2">
+                  Remaining issues were mostly driven by ambiguous or generic line descriptions (input quality).
+                </li>
+                <li>
+                  Explanations can be attached to each line so reviewers can validate decisions and adjust quickly.
+                </li>
+              </ul>
+              <p class="mb-0">
+                In practice, this is the difference between “months of effort” and “review and refine”.
+              </p>
+            </div>
           </div>
+
           <div class="col-lg-6">
             <div class="feature-card">
-              <div class="feature-tag">Cost & speed</div>
-              <h3>Economics that unlock new levels of detail</h3>
+              <div class="feature-tag">FoxBurrowAI vs direct LLM prompting</div>
+              <h3>Why “type it into an AI chat box” isn’t enough</h3>
               <p>
-                A generous London rate for a human analyst might be around
-                <strong>£500 per day</strong> to categorise roughly
-                <strong>300 lines</strong>, or about <strong>£1.67 per line</strong>.
+                A useful baseline is what happens when you rely on a general-purpose model to categorise items
+                from the front end with prompt tweaks. Reported results in the literature show that while L1 can be
+                passable, accuracy collapses as you go deeper — exactly where procurement teams need precision.
               </p>
-              <p>
-                FoxBurrowAI offers categorisation from roughly
-                <strong>£0.075 per line (≈$0.10)</strong>, giving you more than
-                <strong>20×</strong> better cost-per-line while still aiming for
-                human-quality results.
-              </p>
-              <p>
-                Outputs can be delivered in a multi-level procurement taxonomy aligned to
-                <a
-                  href="https://www.undp.org/unspsc"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >UNSPSC</a
-                >
-                (L1–L4 style hierarchies), so teams can compare across suppliers, time periods,
-                and business units using a consistent standard.
-              </p>
-              <p>
-                Even after allowing for occasional review, prompt upkeep, and
-                infrastructure, it becomes realistic to deeply categorise
-                hundreds of thousands of rows that would never have been
-                inspected line-by-line by a human.
-              </p>
-              <div class="metric-chip-row">
-                <span class="metric-chip">Scale up without growing headcount</span>
-                <span class="metric-chip">Ideal for multi-year, multi-entity data</span>
+
+              <div class="mt-3" style="overflow-x: auto;">
+                <table class="comparison-table">
+                  <thead>
+                    <tr>
+                      <th style="min-width: 220px;">Comparison</th>
+                      <th>L1 match</th>
+                      <th>L2 match</th>
+                      <th>L3 match</th>
+                      <th>L4 match</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Prompt-engineered GPT-4 (cleaned dataset)</td>
+                      <td>54.59%</td>
+                      <td>40.31%</td>
+                      <td>29.01%</td>
+                      <td>10.8%</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
+
+              <p class="note-text mt-3 mb-0">
+                At L4, ~10% matching is not fit-for-purpose: it forces heavy manual correction, destroys trust,
+                and makes dashboards misleading. FoxBurrowAI is built to behave like an analyst — producing
+                consistent, reviewable decisions rather than a one-shot guess.
+              </p>
+            </div>
+
+            <div class="feature-card mt-3">
+              <div class="feature-tag">Data realism</div>
+              <h3>Cleaned data can inflate results — real exports are messier</h3>
+              <p class="mb-0">
+                Many published tests use cleaned, cherry-picked, or “best case” rows. In real procurement exports,
+                descriptions are inconsistent, columns go missing, and suppliers use vague language. That’s why a
+                production approach needs guardrails, consistency, and review support — not just a clever prompt.
+              </p>
             </div>
           </div>
         </div>
       </div>
     </section>
-
-
-
 
     <!-- SECTION: BEANS STORY -->
     <section class="section" style="padding-top: 0;">
@@ -745,7 +777,6 @@
               </ul>
             </div>
 
-            <!-- NEW BOX UNDER "WHY THIS MATTERS IN PRACTICE" -->
             <div class="story-card mt-3">
               <div class="story-label">Approach</div>
               <h3 class="section-heading" style="margin-bottom: 0.6rem;">
