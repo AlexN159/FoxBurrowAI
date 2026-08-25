@@ -1,0 +1,925 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Other Projects | FoxBurrowAI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Explore KitCode, a local-first Windows coding practice studio for Python, Java, SQL, and machine-learning interview preparation."
+    />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z997C4X3H8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Z997C4X3H8');
+    </script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --brand-dark: #003b40;
+        --brand-accent: #ff7a3c;
+        --brand-accent-2: #20c997;
+        --bg-soft: #f5f7fa;
+        --text-muted: #6b7280;
+        --ink: #111827;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        background-color: var(--bg-soft);
+        color: var(--ink);
+        overflow-x: hidden;
+      }
+
+      .navbar {
+        box-shadow: 0 6px 20px rgba(15, 23, 42, 0.08);
+        background: #ffffff !important;
+      }
+
+      .navbar-brand {
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        font-size: 0.95rem;
+        color: var(--brand-dark) !important;
+      }
+
+      .navbar-brand .brand-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.1;
+      }
+
+      .navbar-brand .brand-text span {
+        display: block;
+        font-weight: 400;
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+        color: var(--text-muted);
+        text-transform: uppercase;
+      }
+
+      .brand-logo {
+        height: 32px;
+        width: auto;
+        margin-right: 0.5rem;
+      }
+
+      .nav-link {
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: #374151 !important;
+      }
+
+      .nav-link.active,
+      .nav-link:hover {
+        color: var(--brand-dark) !important;
+      }
+
+      .project-hero {
+        position: relative;
+        overflow: hidden;
+        padding: 5rem 0 4.25rem;
+        background:
+          radial-gradient(circle at 83% 20%, rgba(32, 201, 151, 0.17), transparent 30%),
+          radial-gradient(circle at 16% 90%, rgba(255, 122, 60, 0.17), transparent 32%),
+          linear-gradient(135deg, #ffffff 0%, #f2fbf9 52%, #fff8f3 100%);
+      }
+
+      .project-hero::after {
+        content: "";
+        position: absolute;
+        right: -8rem;
+        bottom: -11rem;
+        width: 28rem;
+        height: 28rem;
+        border: 1px solid rgba(0, 59, 64, 0.08);
+        border-radius: 50%;
+      }
+
+      .project-hero .container {
+        position: relative;
+        z-index: 1;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        margin-bottom: 1rem;
+        color: var(--brand-dark);
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 1.75rem;
+        height: 2px;
+        background: var(--brand-accent);
+      }
+
+      .hero-title {
+        max-width: 760px;
+        margin-bottom: 1rem;
+        color: var(--brand-dark);
+        font-size: clamp(2.35rem, 5vw, 4.6rem);
+        font-weight: 750;
+        letter-spacing: -0.045em;
+        line-height: 1.02;
+      }
+
+      .hero-copy {
+        max-width: 720px;
+        margin-bottom: 1.65rem;
+        color: #4b5563;
+        font-size: 1.08rem;
+        line-height: 1.75;
+      }
+
+      .button-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+
+      .btn-project-primary,
+      .btn-project-secondary {
+        border-radius: 999px;
+        padding: 0.72rem 1.35rem;
+        font-size: 0.92rem;
+        font-weight: 700;
+      }
+
+      .btn-project-primary {
+        border: 1px solid var(--brand-accent);
+        background: var(--brand-accent);
+        color: #ffffff;
+        box-shadow: 0 12px 28px rgba(255, 122, 60, 0.24);
+      }
+
+      .btn-project-primary:hover {
+        border-color: #e7662d;
+        background: #e7662d;
+        color: #ffffff;
+      }
+
+      .btn-project-secondary {
+        border: 1px solid rgba(0, 59, 64, 0.22);
+        background: rgba(255, 255, 255, 0.76);
+        color: var(--brand-dark);
+      }
+
+      .btn-project-secondary:hover {
+        border-color: var(--brand-dark);
+        background: #ffffff;
+        color: var(--brand-dark);
+      }
+
+      .download-note {
+        margin-top: 0.85rem;
+        color: var(--text-muted);
+        font-size: 0.8rem;
+      }
+
+      .metric-panel {
+        display: grid;
+        gap: 0.8rem;
+        padding: 1.15rem;
+        border: 1px solid rgba(0, 59, 64, 0.08);
+        border-radius: 1.35rem;
+        background: rgba(255, 255, 255, 0.82);
+        box-shadow: 0 24px 55px rgba(15, 23, 42, 0.09);
+        backdrop-filter: blur(10px);
+      }
+
+      .metric {
+        display: grid;
+        grid-template-columns: 5.2rem 1fr;
+        align-items: center;
+        gap: 0.9rem;
+        padding: 0.9rem 1rem;
+        border-radius: 1rem;
+        background: #ffffff;
+      }
+
+      .metric-value {
+        color: var(--brand-dark);
+        font-size: 1.55rem;
+        font-weight: 750;
+      }
+
+      .metric-label {
+        color: #4b5563;
+        font-size: 0.86rem;
+        line-height: 1.4;
+      }
+
+      .section {
+        padding: 4rem 0;
+      }
+
+      .section-white {
+        background: #ffffff;
+      }
+
+      .section-heading {
+        margin-bottom: 0.7rem;
+        color: var(--brand-dark);
+        font-size: clamp(1.65rem, 3vw, 2.35rem);
+        font-weight: 700;
+        letter-spacing: -0.025em;
+      }
+
+      .section-copy {
+        max-width: 760px;
+        color: var(--text-muted);
+        line-height: 1.75;
+      }
+
+      .screenshot-shell {
+        padding: 0.75rem;
+        border: 1px solid rgba(15, 23, 42, 0.1);
+        border-radius: 1.35rem;
+        background: #ffffff;
+        box-shadow: 0 25px 65px rgba(15, 23, 42, 0.13);
+      }
+
+      .screenshot-shell img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 0.9rem;
+        background: #0c1728;
+      }
+
+      .screenshot-caption {
+        margin: 0.75rem 0 0.15rem;
+        color: var(--text-muted);
+        font-size: 0.8rem;
+        text-align: center;
+      }
+
+      .feature-card,
+      .proof-card {
+        height: 100%;
+        border: 1px solid rgba(15, 23, 42, 0.07);
+        border-radius: 1rem;
+        background: #ffffff;
+        box-shadow: 0 12px 32px rgba(15, 23, 42, 0.055);
+      }
+
+      .feature-card {
+        padding: 1.35rem;
+      }
+
+      .feature-number {
+        display: inline-grid;
+        place-items: center;
+        width: 2rem;
+        height: 2rem;
+        margin-bottom: 0.8rem;
+        border-radius: 0.65rem;
+        background: #e5f5f2;
+        color: #065f46;
+        font-size: 0.78rem;
+        font-weight: 750;
+      }
+
+      .feature-card h3,
+      .proof-card h3 {
+        margin-bottom: 0.45rem;
+        color: var(--brand-dark);
+        font-size: 1.02rem;
+        font-weight: 700;
+      }
+
+      .feature-card p,
+      .proof-card p {
+        margin: 0;
+        color: var(--text-muted);
+        font-size: 0.88rem;
+        line-height: 1.65;
+      }
+
+      .content-card {
+        height: 100%;
+        padding: 1.6rem;
+        border: 1px solid rgba(15, 23, 42, 0.07);
+        border-radius: 1rem;
+        background: #ffffff;
+        box-shadow: 0 12px 32px rgba(15, 23, 42, 0.055);
+      }
+
+      .content-card h3 {
+        margin-bottom: 0.85rem;
+        color: var(--brand-dark);
+        font-size: 1.15rem;
+        font-weight: 700;
+      }
+
+      .content-card p,
+      .content-card li {
+        color: #4b5563;
+        font-size: 0.9rem;
+        line-height: 1.7;
+      }
+
+      .content-card ol,
+      .content-card ul,
+      .readme-list {
+        margin-bottom: 0;
+        padding-left: 1.2rem;
+      }
+
+      .content-card li + li,
+      .readme-list li + li {
+        margin-top: 0.55rem;
+      }
+
+      .learning-table {
+        margin-bottom: 0;
+        color: #374151;
+        font-size: 0.84rem;
+        vertical-align: top;
+      }
+
+      .learning-table thead th {
+        border-color: rgba(255, 255, 255, 0.14);
+        background: var(--brand-dark);
+        color: #ffffff;
+        font-weight: 650;
+      }
+
+      .learning-table tbody th {
+        min-width: 150px;
+        color: var(--brand-dark);
+        font-weight: 700;
+      }
+
+      .learning-table td,
+      .learning-table th {
+        padding: 0.85rem;
+        border-color: #e5e7eb;
+        line-height: 1.55;
+      }
+
+      .table-shell {
+        overflow: hidden;
+        border: 1px solid #e5e7eb;
+        border-radius: 1rem;
+        background: #ffffff;
+        box-shadow: 0 12px 32px rgba(15, 23, 42, 0.055);
+      }
+
+      .callout {
+        padding: 1rem 1.1rem;
+        border-left: 3px solid var(--brand-accent-2);
+        border-radius: 0.6rem;
+        background: #eefaf6;
+        color: #335b55;
+        font-size: 0.86rem;
+        line-height: 1.65;
+      }
+
+      .proof-card {
+        padding: 1.5rem;
+        border-top: 3px solid var(--brand-accent-2);
+      }
+
+      .tech-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.55rem;
+        margin-top: 1.15rem;
+      }
+
+      .tech-list span {
+        padding: 0.35rem 0.8rem;
+        border: 1px solid rgba(0, 59, 64, 0.12);
+        border-radius: 999px;
+        background: #ffffff;
+        color: var(--brand-dark);
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+
+      .download-panel {
+        padding: 2rem;
+        border-radius: 1.25rem;
+        background: var(--brand-dark);
+        color: #ffffff;
+        box-shadow: 0 20px 45px rgba(0, 59, 64, 0.2);
+      }
+
+      .download-panel h2 {
+        font-size: 1.55rem;
+        font-weight: 700;
+      }
+
+      .download-panel p {
+        max-width: 660px;
+        color: rgba(255, 255, 255, 0.76);
+        line-height: 1.65;
+      }
+
+      .download-panel li {
+        margin-bottom: 0.35rem;
+        color: rgba(255, 255, 255, 0.86);
+        line-height: 1.55;
+      }
+
+      .download-panel .btn-project-primary {
+        box-shadow: none;
+      }
+
+      .download-panel .text-link {
+        color: #bff4e3;
+        font-size: 0.88rem;
+        font-weight: 650;
+        text-underline-offset: 0.2rem;
+      }
+
+      footer {
+        border-top: 1px solid #e5e7eb;
+        padding: 1.4rem 0;
+        background: #ffffff;
+        color: #6b7280;
+        font-size: 0.8rem;
+      }
+
+      footer a {
+        color: #4b5563;
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 991.98px) {
+        .navbar-brand .brand-text span {
+          font-size: 0.72rem;
+        }
+
+        .project-hero {
+          padding: 3.75rem 0 3.25rem;
+        }
+      }
+
+      @media (max-width: 575.98px) {
+        .hero-title {
+          font-size: 2.45rem;
+        }
+
+        .button-row .btn {
+          width: 100%;
+        }
+
+        .metric {
+          grid-template-columns: 4.7rem 1fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <img src="logo.png" alt="FoxBurrowAI logo" class="brand-logo" />
+          <div class="brand-text">
+            FoxBurrowAI
+            <span>AI data services</span>
+          </div>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNav"
+          aria-controls="mainNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto align-items-lg-center mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Overview</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="dashboards.html">Dashboards</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="other-projects.html"
+                >Other Projects</a
+              >
+            </li>
+            <li class="nav-item me-lg-2">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <section class="project-hero">
+        <div class="container">
+          <div class="row align-items-center gy-5">
+            <div class="col-lg-8">
+              <div class="eyebrow">Other projects</div>
+              <h1 class="hero-title">KitCode Practice Studio</h1>
+              <p class="hero-copy">
+                Practise Python, Java, SQL, and machine-learning interview concepts
+                in one focused Windows workspace. KitCode combines a curated
+                exercise bank, local code execution, progress tracking, reviewed
+                answers, and optional live coaching from Codex—without requiring a
+                Git or terminal workflow.
+              </p>
+              <div class="button-row">
+                <a
+                  class="btn btn-project-primary"
+                  href="https://github.com/AlexN159/KitCode/releases/latest/download/KitCode-Windows.zip"
+                  >Download KitCode for Windows</a
+                >
+                <a
+                  class="btn btn-project-secondary"
+                  href="https://github.com/AlexN159/KitCode"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >View the project on GitHub</a
+                >
+              </div>
+              <p class="download-note mb-0">
+                Free download from GitHub · Windows · core practice works offline
+                after setup
+              </p>
+            </div>
+            <div class="col-lg-4">
+              <div class="metric-panel" aria-label="KitCode project highlights">
+                <div class="metric">
+                  <div class="metric-value">710</div>
+                  <div class="metric-label">curated Python, Java, and SQL coding exercises</div>
+                </div>
+                <div class="metric">
+                  <div class="metric-value">400</div>
+                  <div class="metric-label">interview and machine-learning concept questions</div>
+                </div>
+                <div class="metric">
+                  <div class="metric-value">3</div>
+                  <div class="metric-label">hands-on coding tracks with Easy, Medium, and Hard levels</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="workspace-heading">
+        <div class="container">
+          <div class="row justify-content-between align-items-end gy-3 mb-4">
+            <div class="col-lg-8">
+              <div class="eyebrow">The workspace</div>
+              <h2 class="section-heading" id="workspace-heading">
+                Practice that feels closer to building real software.
+              </h2>
+              <p class="section-copy mb-0">
+                KitCode works well for first-time practice, interview preparation,
+                refreshing fundamentals, learning data structures and algorithms,
+                or building confidence before moving into larger projects.
+              </p>
+            </div>
+          </div>
+          <figure class="screenshot-shell mb-0">
+            <img
+              src="kitcode-workspace.png"
+              width="3836"
+              height="1889"
+              alt="KitCode workspace showing a Python exercise, code editor, test controls, and optional AI coach"
+            />
+            <figcaption class="screenshot-caption">
+              A Python exercise in KitCode, with the editor, run and submit controls,
+              a targeted hint, and the optional coaching panel.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section section-white" aria-labelledby="features-heading">
+        <div class="container">
+          <div class="row mb-4">
+            <div class="col-lg-8">
+              <div class="eyebrow">Why learn with KitCode?</div>
+              <h2 class="section-heading" id="features-heading">
+                A complete, focused feedback loop.
+              </h2>
+              <p class="section-copy mb-0">
+                The workspace brings the exercise, editor, runner, feedback, and
+                progress together instead of spreading practice across several tools.
+              </p>
+            </div>
+          </div>
+          <div class="row g-3">
+            <div class="col-md-6 col-lg-4">
+              <article class="feature-card">
+                <div class="feature-number">01</div>
+                <h3>710 curated coding exercises</h3>
+                <p>Work through 410 Python, 150 Java, and 150 SQL drills across Easy, Medium, and Hard levels.</p>
+              </article>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <article class="feature-card">
+                <div class="feature-number">02</div>
+                <h3>Live help from Codex</h3>
+                <p>Ask questions naturally, request a targeted hint, or get an explanation based on the exercise and current code.</p>
+              </article>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <article class="feature-card">
+                <div class="feature-number">03</div>
+                <h3>A complete feedback loop</h3>
+                <p>Run code, inspect output, submit against the exercise test suite, and track completed problems.</p>
+              </article>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <article class="feature-card">
+                <div class="feature-number">04</div>
+                <h3>Reviewed best answers</h3>
+                <p>After a correct submission, compare the approach with an expected solution, Big-O target, and readability-first rubric.</p>
+              </article>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <article class="feature-card">
+                <div class="feature-number">05</div>
+                <h3>Python line-by-line tracing</h3>
+                <p>Step through executed lines and inspect changing values when a program is difficult to reason about.</p>
+              </article>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <article class="feature-card">
+                <div class="feature-number">06</div>
+                <h3>Interview FAQ banks</h3>
+                <p>Review 100 questions each for Python, Java, SQL, and machine-learning concepts without opening the code editor.</p>
+              </article>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <article class="feature-card">
+                <div class="feature-number">07</div>
+                <h3>Local-first practice</h3>
+                <p>The curated bank, runner, drafts, and progress stay on the computer and continue to work offline after setup.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="loop-heading">
+        <div class="container">
+          <div class="row mb-4">
+            <div class="col-lg-8">
+              <div class="eyebrow">How it works</div>
+              <h2 class="section-heading" id="loop-heading">A practical learning loop.</h2>
+            </div>
+          </div>
+          <div class="row g-3">
+            <div class="col-lg-6">
+              <article class="content-card">
+                <h3>Work through an exercise</h3>
+                <ol>
+                  <li>Choose Python, Java, or SQL and select an Easy, Medium, or Hard practice level.</li>
+                  <li>Read the task, examples, constraints, hints, and expected complexity.</li>
+                  <li>Write the answer in the built-in Monaco editor.</li>
+                  <li>Press <strong>F5</strong> to run it. Python exercises can also be traced line by line.</li>
+                  <li>Press <strong>F6</strong> to submit it against the full exercise test suite.</li>
+                  <li>After passing, open <strong>Best answer</strong> to compare complexity, clarity, and implementation choices.</li>
+                </ol>
+                <p class="mt-3 mb-0">
+                  The selected level, drafts, solved exercises, FAQ scores, and recent coach conversations are remembered locally.
+                </p>
+              </article>
+            </div>
+            <div class="col-lg-6">
+              <article class="content-card">
+                <h3>Optional live coaching</h3>
+                <p>
+                  KitCode can connect to an authenticated Codex CLI and use it as a
+                  live programming coach. OpenAI, Anthropic/Claude, and compatible
+                  local models are also supported.
+                </p>
+                <ul>
+                  <li>Ask follow-up questions in a streaming conversation while you work.</li>
+                  <li>Request a concise, read-only hint anchored near the relevant editor line.</li>
+                  <li>Keep separate conversations for each exercise and AI provider.</li>
+                  <li>Retry or restart an interrupted response without retyping the question.</li>
+                  <li>Ask for explanations of errors, concepts, trade-offs, or possible next steps.</li>
+                </ul>
+                <div class="callout mt-3">
+                  The coach receives the visible exercise context, current script,
+                  cursor position, question, and a small amount of recent conversation.
+                  Hidden tests and reviewed reference answers are never included.
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-white" aria-labelledby="topics-heading">
+        <div class="container">
+          <div class="row mb-4">
+            <div class="col-lg-8">
+              <div class="eyebrow">Curriculum</div>
+              <h2 class="section-heading" id="topics-heading">Learning topics available.</h2>
+            </div>
+          </div>
+          <div class="table-shell">
+            <div class="table-responsive">
+              <table class="table learning-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Track</th>
+                    <th scope="col">Curated practice</th>
+                    <th scope="col">Topics include</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Python</th>
+                    <td>410 exercises: 176 Easy, 140 Medium, 94 Hard</td>
+                    <td>Typed functions and dataclasses, iterators and generators, async I/O, retries, data structures, classes and OOP, searching, sorting, trees, graphs, dynamic programming, and advanced algorithms.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Java</th>
+                    <td>150 exercises: 35 Easy, 86 Medium, 29 Hard</td>
+                    <td>Core syntax, arrays, strings, collections, maps, stacks, linked lists, binary search, trees, graphs, greedy algorithms, dynamic programming, backtracking, and design.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">SQL</th>
+                    <td>150 exercises: 46 Easy, 89 Medium, 15 Hard</td>
+                    <td>Filtering, aggregation, joins, NULL, CASE, subqueries, window functions, recursive CTEs, time-series analysis, gaps and islands, hierarchies, and reachability.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Python Fundamentals</th>
+                    <td>100 optional multiple-choice questions</td>
+                    <td>Typed functions and classes, iterators, async I/O, exceptions, testing, dependency injection, API pagination, rate limiting, and clear abstractions.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Java Interview FAQs</th>
+                    <td>100 optional multiple-choice questions</td>
+                    <td>Java semantics, OOP, exceptions, generics, collections, streams, concurrency, modern Java, testing, and the JVM.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">SQL Interview FAQs</th>
+                    <td>100 optional multiple-choice questions</td>
+                    <td>Filtering, joins, aggregation, window functions, CTEs, schema design, indexes, performance, transactions, security, and warehousing.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Machine Learning Concepts</th>
+                    <td>100 optional multiple-choice questions</td>
+                    <td>Regression, gradient descent, preprocessing, regularisation, evaluation, forests and boosting, neural networks, transformer attention, and production ML.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="callout mt-3">
+            FAQ answers are checked locally with explanations, topic filters,
+            next-unanswered and review-misses views. SQL practice supports SQLite,
+            PostgreSQL, MySQL, and SQL Server syntax, executed safely against fresh
+            local SQLite fixtures.
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="more-heading">
+        <div class="container">
+          <div class="row mb-4">
+            <div class="col-lg-8">
+              <div class="eyebrow">More useful features</div>
+              <h2 class="section-heading" id="more-heading">Small details that make practice easier.</h2>
+            </div>
+          </div>
+          <div class="row g-3">
+            <div class="col-lg-7">
+              <article class="content-card">
+                <ul class="readme-list">
+                  <li>Searchable exercise banks and solved counts for each difficulty level.</li>
+                  <li>Automatic draft saving and recovery if a newer edit would otherwise hide earlier work.</li>
+                  <li>Public feedback plus private checks that discourage hard-coded answers.</li>
+                  <li>Direct class-API testing for Python OOP exercises.</li>
+                  <li>Optional AI-generated drills, clearly marked as provisional and kept separate from the curated 710.</li>
+                  <li>One-click hints from Kit, the movable desktop mascot.</li>
+                  <li>Keyboard-first Run and Submit shortcuts, responsive drawers, and accessible dialogs.</li>
+                </ul>
+              </article>
+            </div>
+            <div class="col-lg-5">
+              <article class="content-card">
+                <h3>Built as a local full-stack application</h3>
+                <p>
+                  The interface and exercise runner are packaged into a Windows
+                  download, while tagged releases are tested and published through
+                  GitHub Actions.
+                </p>
+                <div class="tech-list" aria-label="Technologies used">
+                  <span>React</span>
+                  <span>TypeScript</span>
+                  <span>Vite</span>
+                  <span>Monaco Editor</span>
+                  <span>Python</span>
+                  <span>FastAPI</span>
+                  <span>SQLite</span>
+                  <span>GitHub Actions</span>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-white" aria-labelledby="download-heading">
+        <div class="container">
+          <div class="download-panel">
+            <div class="row align-items-center gy-4">
+              <div class="col-lg-8">
+                <div class="eyebrow text-white">Try the project</div>
+                <h2 id="download-heading">Download KitCode from GitHub.</h2>
+                <ol class="ps-3 mb-3">
+                  <li>Open <strong>KitCode-Windows.zip</strong> and select <strong>Extract All</strong>.</li>
+                  <li>Open the extracted <strong>KitCode</strong> folder.</li>
+                  <li>Double-click <strong>launch.bat</strong>.</li>
+                </ol>
+                <p class="mb-0">
+                  KitCode opens in the browser. The first launch may need a few
+                  minutes and an internet connection while it prepares Python and
+                  the required packages; later launches are much faster. Java is
+                  prepared automatically where the computer permits it.
+                </p>
+              </div>
+              <div class="col-lg-4 text-lg-end">
+                <a
+                  class="btn btn-project-primary mb-2"
+                  href="https://github.com/AlexN159/KitCode/releases/latest/download/KitCode-Windows.zip"
+                  >Download latest Windows ZIP</a
+                >
+                <div>
+                  <a
+                    class="text-link"
+                    href="https://github.com/AlexN159/KitCode/releases/latest"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >View the latest release details</a
+                  >
+                </div>
+                <div class="mt-1">
+                  <a
+                    class="text-link"
+                    href="https://github.com/AlexN159/KitCode"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Browse the source and README</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container d-flex flex-wrap justify-content-between gap-2">
+        <div>© 2025 FoxBurrowAI. All rights reserved.</div>
+        <div>
+          <a href="other-projects.html">Other Projects</a>
+          <span>·</span>
+          <a href="contact.html">Contact</a>
+          <span>·</span>
+          <span>AI data services for procurement teams</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
