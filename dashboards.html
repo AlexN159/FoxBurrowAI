@@ -188,6 +188,199 @@
         color: var(--text-muted);
       }
 
+      .section {
+        padding: 0 0 3.5rem;
+      }
+
+      .download-panel {
+        margin-top: 1.6rem;
+        padding: 2rem;
+        border-radius: 1.25rem;
+        color: #ffffff;
+        background: linear-gradient(135deg, var(--brand-dark) 0%, #075b60 100%);
+        box-shadow: 0 20px 44px rgba(0, 59, 64, 0.2);
+      }
+
+      .download-panel .section-eyebrow {
+        color: #8cebd2;
+      }
+
+      .download-panel h2 {
+        margin-bottom: 0.45rem;
+        font-size: 1.45rem;
+        font-weight: 650;
+      }
+
+      .download-panel > p {
+        max-width: 780px;
+        margin-bottom: 1.35rem;
+        color: rgba(255, 255, 255, 0.78);
+      }
+
+      .download-options {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .download-option {
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
+        padding: 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 0.9rem;
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .download-option p {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.76);
+        font-size: 0.88rem;
+      }
+
+      .btn-download {
+        width: 100%;
+        margin-top: auto;
+        padding: 0.72rem 1rem;
+        border: 0;
+        border-radius: 999px;
+        color: #2b160b;
+        background: var(--brand-accent);
+        box-shadow: 0 12px 28px rgba(255, 122, 60, 0.28);
+        font-size: 0.92rem;
+        font-weight: 700;
+        text-decoration: none;
+        text-align: center;
+        transition: transform 160ms ease, filter 160ms ease;
+      }
+
+      .btn-download:hover {
+        color: #2b160b;
+        filter: brightness(1.06);
+        transform: translateY(-1px);
+      }
+
+      .showcase-heading {
+        margin-bottom: 1.25rem;
+      }
+
+      .showcase-card {
+        overflow: hidden;
+        margin: 0 0 1.5rem;
+        border: 1px solid #e5e7eb;
+        border-radius: 1.1rem;
+        background: #ffffff;
+        box-shadow: 0 14px 34px rgba(15, 23, 42, 0.07);
+      }
+
+      .showcase-copy {
+        padding: 1.35rem 1.5rem 1.2rem;
+      }
+
+      .showcase-index {
+        display: inline-block;
+        margin-bottom: 0.45rem;
+        padding: 0.18rem 0.62rem;
+        border-radius: 999px;
+        color: #065f46;
+        background: #e5f5f2;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .showcase-copy h2 {
+        margin-bottom: 0.35rem;
+        font-size: 1.25rem;
+        font-weight: 650;
+      }
+
+      .showcase-copy p {
+        max-width: 900px;
+        margin: 0;
+        color: var(--text-muted);
+        font-size: 0.92rem;
+      }
+
+      .showcase-media {
+        display: block;
+        border-top: 1px solid #e5e7eb;
+        background: #eef2f7;
+        text-decoration: none;
+      }
+
+      .showcase-media img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .showcase-link-note {
+        display: block;
+        padding: 0.55rem 1rem;
+        color: var(--brand-dark);
+        background: #ffffff;
+        font-size: 0.78rem;
+        font-weight: 650;
+        text-align: right;
+      }
+
+      .hosted-section {
+        margin-top: 2.5rem;
+        padding-top: 2.5rem;
+        border-top: 1px solid #dbe2ea;
+      }
+
+      .hosted-card {
+        border: 1px dashed #cbd5e1;
+        box-shadow: none;
+        background: #f8fafc;
+      }
+
+      .status-badge {
+        align-self: flex-start;
+        margin-bottom: 0.7rem;
+        padding: 0.24rem 0.65rem;
+        border-radius: 999px;
+        color: #92400e;
+        background: #fef3c7;
+        font-size: 0.72rem;
+        font-weight: 700;
+      }
+
+      .btn-demo {
+        padding: 0.58rem 1rem;
+        border: 1px solid var(--brand-dark);
+        border-radius: 999px;
+        color: var(--brand-dark);
+        background: transparent;
+        font-size: 0.87rem;
+        font-weight: 650;
+        text-decoration: none;
+        text-align: center;
+      }
+
+      .btn-demo:hover {
+        color: #ffffff;
+        background: var(--brand-dark);
+      }
+
+      @media (max-width: 767.98px) {
+        .download-panel {
+          padding: 1.35rem;
+        }
+
+        .download-options {
+          grid-template-columns: 1fr;
+        }
+
+        .showcase-copy {
+          padding: 1.1rem;
+        }
+      }
+
       footer {
         border-top: 1px solid #e5e7eb;
         padding: 1.4rem 0;
@@ -258,92 +451,165 @@
           guidance from the original categorisation.
         </p>
 
-        <div
-          class="alert alert-warning mt-3 mb-0"
-          role="alert"
-          style="max-width: 720px;"
-        >
-          <strong>Note:</strong> These online hosted example dashboards may run slowly.
-          For best performance, download the offline, Nuitka-built executables (Python → C → native code).
-
-          <div class="d-flex flex-column flex-sm-row gap-2 mt-3">
-            <a
-              class="btn btn-dash"
-              href="https://github.com/AlexN159/FoxBurrowAI/releases/download/FoxburrowAI/GOV.zip"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Download offline GOV dashboard (ZIP)
-            </a>
-
-            <a
-              class="btn btn-dash"
-              href="https://github.com/AlexN159/FoxBurrowAI/releases/download/FoxburrowAI/RETAG.zip"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Download offline RETAG dashboard (ZIP)
-            </a>
-          </div>
-
-          <div class="mt-2" style="font-size: 0.88rem;">
-
-          </div>
-        </div>
-
         <div class="pill-list">
           <span>No login required</span>
           <span>Interactive filters</span>
           <span>CSV export available</span>
         </div>
-      </div>
-    </section>
 
-    <!-- DASHBOARDS -->
-    <section class="section" style="padding-top: 0;">
-      <div class="container">
-        <div class="row g-4">
-          <div class="col-lg-6">
-            <div class="dash-card">
-              <div class="dash-tag">Baseline</div>
-              <h2>Government-coded spend</h2>
-              <p>Original public-sector categorisations as supplied.</p>
+        <div class="download-panel">
+          <div class="section-eyebrow">Download and try them</div>
+          <h2>Run the complete dashboards locally</h2>
+          <p>
+            These self-contained dashboard packages are the best way to explore
+            every filter, drill-down and export. Download either version as a ZIP
+            and run it offline — no account or shared server required.
+          </p>
+
+          <div class="download-options">
+            <div class="download-option">
+              <div>
+                <strong>Original government coding</strong>
+                <p>Explore the source data using its supplied public-sector categories.</p>
+              </div>
               <a
-                class="btn btn-dash mt-auto"
-                href="http://gov.vfish.niemira.com:7070/"
+                class="btn-download"
+                href="https://github.com/AlexN159/FoxBurrowAI/releases/download/FoxburrowAI/GOV.zip"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Open baseline dashboard
+                Download GOV dashboard (ZIP) ↓
               </a>
             </div>
-          </div>
 
-          <div class="col-lg-6">
-            <div class="dash-card">
-              <div class="dash-tag">FoxBurrowAI</div>
-              <h2>AI-retagged spend</h2>
-              <p>Same invoices, fully reclassified using AI-assisted review.</p>
+            <div class="download-option">
+              <div>
+                <strong>FoxBurrowAI retagging</strong>
+                <p>Explore the same invoices after AI-assisted recategorisation.</p>
+              </div>
               <a
-                class="btn btn-dash mt-auto"
-                href="http://retag.vfish.niemira.com:7070/"
+                class="btn-download"
+                href="https://github.com/AlexN159/FoxBurrowAI/releases/download/FoxburrowAI/RETAG.zip"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Open FoxBurrowAI dashboard
+                Download RETAG dashboard (ZIP) ↓
               </a>
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- DOWNLOADS -->
+    <!-- DASHBOARD SHOWCASE -->
+    <section class="section">
+      <div class="container">
+        <div class="showcase-heading">
+          <div class="section-eyebrow">Inside the dashboard</div>
+          <h2 class="section-heading">Explore spend from overview to detail</h2>
+          <p class="section-intro">
+            Each view shares the same filters, so you can move from a high-level
+            trend into category and supplier detail without losing context.
+            Select any screenshot to open the full-resolution view.
+          </p>
+        </div>
+
+        <figure class="showcase-card">
+          <figcaption class="showcase-copy">
+            <span class="showcase-index">View 01</span>
+            <h2>See the full spend picture</h2>
+            <p>
+              Track total spend by month, then use supplier, department, year,
+              category-level and currency filters to isolate the slice you need.
+              The overview makes peaks, dips and changes in direction easy to spot.
+            </p>
+          </figcaption>
+          <a
+            class="showcase-media"
+            href="dashboard-total-spend.png"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open the total spend dashboard screenshot at full resolution"
+          >
+            <img
+              src="dashboard-total-spend.png"
+              alt="Spend Dashboard showing total spend over time as a monthly line chart"
+              width="3833"
+              height="1293"
+              loading="lazy"
+              decoding="async"
+            />
+            <span class="showcase-link-note">Open full-size screenshot ↗</span>
+          </a>
+        </figure>
+
+        <figure class="showcase-card">
+          <figcaption class="showcase-copy">
+            <span class="showcase-index">View 02</span>
+            <h2>Drill through the category hierarchy</h2>
+            <p>
+              Compare the service groups driving spend in a stacked area chart.
+              Choose how many categories to display, then drill from broad L1
+              groups through the hierarchy and back up again when needed.
+            </p>
+          </figcaption>
+          <a
+            class="showcase-media"
+            href="dashboard-hierarchical-area.png"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open the hierarchical area dashboard screenshot at full resolution"
+          >
+            <img
+              src="dashboard-hierarchical-area.png"
+              alt="Spend Dashboard showing an interactive hierarchical stacked area chart"
+              width="3161"
+              height="1252"
+              loading="lazy"
+              decoding="async"
+            />
+            <span class="showcase-link-note">Open full-size screenshot ↗</span>
+          </a>
+        </figure>
+
+        <figure class="showcase-card">
+          <figcaption class="showcase-copy">
+            <span class="showcase-index">View 03</span>
+            <h2>Find the suppliers driving spend</h2>
+            <p>
+              Review supplier counts, transaction rows and total value in one
+              place, then rank the detailed supplier table by row count or spend
+              to identify where a closer look will have the most impact.
+            </p>
+          </figcaption>
+          <a
+            class="showcase-media"
+            href="dashboard-key-suppliers.png"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open the key suppliers dashboard screenshot at full resolution"
+          >
+            <img
+              src="dashboard-key-suppliers.png"
+              alt="Spend Dashboard showing supplier summary metrics and a ranked supplier table"
+              width="3823"
+              height="1514"
+              loading="lazy"
+              decoding="async"
+            />
+            <span class="showcase-link-note">Open full-size screenshot ↗</span>
+          </a>
+        </figure>
+
+        <!-- DATA DOWNLOADS -->
         <div class="row mt-4">
-          <div class="col-lg-8">
+          <div class="col-lg-9">
             <div class="dash-card">
-              <div class="dash-tag">Downloads</div>
-              <h2>Example datasets</h2>
+              <div class="dash-tag">Supporting downloads</div>
+              <h2>Use the underlying example data</h2>
               <p>
-                Download the raw and recategorised datasets used to build the dashboards.
+                Download the original and recategorised datasets used to build
+                the dashboards, or review 100 detailed classification examples.
               </p>
 
               <div class="d-flex flex-column gap-2 mt-3">
@@ -368,7 +634,7 @@
                   href="data/DetailedClassificationExamples.xlsx"
                   download
                 >
-                  Download detailed classification examples (Excel) - 100 rows, including explanations
+                  Download 100 detailed classification examples with explanations (Excel)
                 </a>
               </div>
 
@@ -381,7 +647,7 @@
 
         <!-- INFO -->
         <div class="row mt-4">
-          <div class="col-lg-8">
+          <div class="col-lg-9">
             <div class="info-card">
               <strong>How this translates to client work</strong>
               <p class="mt-2 mb-0">
@@ -389,6 +655,53 @@
                 self-contained applications — no accounts or shared servers
                 required.
               </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- HOSTED DASHBOARDS -->
+        <div class="hosted-section">
+          <div class="section-eyebrow">Older hosted previews</div>
+          <h2 class="section-heading">Online dashboard links</h2>
+          <p class="section-intro mb-4">
+            These hosted demos are currently inconsistent and may be slow or
+            unavailable. They remain here for reference, but the downloadable
+            versions above are the recommended way to try the dashboards.
+          </p>
+
+          <div class="row g-4">
+            <div class="col-lg-6">
+              <div class="dash-card hosted-card">
+                <span class="status-badge">May be unavailable</span>
+                <div class="dash-tag">Baseline hosted preview</div>
+                <h2>Government-coded spend</h2>
+                <p>Original public-sector categorisations as supplied.</p>
+                <a
+                  class="btn-demo mt-auto"
+                  href="http://gov.vfish.niemira.com:7070/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Try hosted baseline
+                </a>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="dash-card hosted-card">
+                <span class="status-badge">May be unavailable</span>
+                <div class="dash-tag">FoxBurrowAI hosted preview</div>
+                <h2>AI-retagged spend</h2>
+                <p>Same invoices, fully reclassified using AI-assisted review.</p>
+                <a
+                  class="btn-demo mt-auto"
+                  href="http://retag.vfish.niemira.com:7070/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Try hosted FoxBurrowAI version
+                </a>
+              </div>
             </div>
           </div>
         </div>
