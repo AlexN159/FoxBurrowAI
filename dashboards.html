@@ -2,18 +2,21 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Dashboards | FoxBurrowAI</title>
+    <title>Procurement Spend Dashboard | FoxBurrowAI</title>
+    <meta
+      name="description"
+      content="Explore FoxBurrowAI's Tableau-style procurement spend dashboard, including category drill-down, supplier analysis, spend variance and data-quality review."
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/png" href="logo.png" />
     <link rel="apple-touch-icon" href="logo.png" />
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z997C4X3H8"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-Z997C4X3H8');
-  </script>
-    <!-- Bootstrap -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z997C4X3H8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Z997C4X3H8');
+    </script>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -22,36 +25,50 @@
     <style>
       :root {
         --brand-dark: #003b40;
+        --brand-deep: #012f33;
         --brand-accent: #ff7a3c;
-        --brand-accent-2: #20c997;
-        --bg-soft: #f5f7fa;
-        --text-muted: #6b7280;
+        --brand-mint: #20c997;
+        --brand-soft: #e8f6f3;
+        --page-bg: #f4f7f9;
+        --panel: #ffffff;
+        --line: #dfe6eb;
+        --ink: #172433;
+        --muted: #667384;
       }
 
       * {
         box-sizing: border-box;
       }
 
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
         margin: 0;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-          sans-serif;
-        background-color: var(--bg-soft);
-        color: #111827;
+        color: var(--ink);
+        background: var(--page-bg);
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
         overflow-x: hidden;
       }
 
+      a:focus-visible,
+      button:focus-visible {
+        outline: 3px solid rgba(255, 122, 60, 0.5);
+        outline-offset: 3px;
+      }
+
       .navbar {
-        box-shadow: 0 6px 20px rgba(15, 23, 42, 0.08);
         background: #ffffff !important;
+        box-shadow: 0 6px 20px rgba(15, 23, 42, 0.08);
       }
 
       .navbar-brand {
+        color: var(--brand-dark) !important;
+        font-size: 0.95rem;
         font-weight: 700;
         letter-spacing: 0.04em;
         text-transform: uppercase;
-        font-size: 0.95rem;
-        color: var(--brand-dark) !important;
       }
 
       .navbar-brand .brand-text {
@@ -62,23 +79,22 @@
 
       .navbar-brand .brand-text span {
         display: block;
-        font-weight: 400;
+        color: var(--muted);
         font-size: 0.8rem;
+        font-weight: 400;
         letter-spacing: 0.08em;
-        color: var(--text-muted);
-        text-transform: uppercase;
       }
 
       .brand-logo {
-        height: 32px;
         width: auto;
+        height: 32px;
         margin-right: 0.5rem;
       }
 
       .nav-link {
+        color: #374151 !important;
         font-size: 0.9rem;
         font-weight: 500;
-        color: #374151 !important;
       }
 
       .nav-link.active,
@@ -86,173 +102,152 @@
         color: var(--brand-dark) !important;
       }
 
-      .page-hero {
-        padding: 3rem 0 2.5rem 0;
-      }
-
-      .section-eyebrow {
-        font-size: 0.8rem;
-        letter-spacing: 0.16em;
+      .eyebrow {
+        margin-bottom: 0.55rem;
         color: var(--brand-dark);
-        text-transform: uppercase;
-        margin-bottom: 0.4rem;
-      }
-
-      .section-heading {
-        font-size: 1.5rem;
-        font-weight: 600;
-        margin-bottom: 0.5rem;
-      }
-
-      .section-intro {
-        max-width: 720px;
-        color: var(--text-muted);
-        font-size: 0.95rem;
-      }
-
-      .dash-card {
-        background: #ffffff;
-        border-radius: 1rem;
-        padding: 1.5rem 1.4rem;
-        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-      }
-
-      .dash-tag {
-        font-size: 0.74rem;
-        text-transform: uppercase;
+        font-size: 0.76rem;
+        font-weight: 750;
         letter-spacing: 0.16em;
-        color: #9ca3af;
-        margin-bottom: 0.3rem;
+        text-transform: uppercase;
       }
 
-      .dash-card h2 {
-        font-size: 1.2rem;
-        font-weight: 600;
-        margin-bottom: 0.35rem;
+      .page-hero {
+        position: relative;
+        padding: 4.25rem 0 3.75rem;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 88% 12%, rgba(32, 201, 151, 0.16), transparent 30%),
+          linear-gradient(150deg, #ffffff 0%, #edf6f4 100%);
       }
 
-      .dash-card p {
-        font-size: 0.9rem;
-        color: var(--text-muted);
-        margin-bottom: 0.4rem;
+      .page-hero::after {
+        position: absolute;
+        right: -8rem;
+        bottom: -11rem;
+        width: 28rem;
+        height: 28rem;
+        border: 1px solid rgba(0, 59, 64, 0.1);
+        border-radius: 50%;
+        content: "";
       }
 
-      .dash-meta {
-        font-size: 0.82rem;
-        color: #6b7280;
-        margin-top: 0.6rem;
+      .hero-grid {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: minmax(0, 1.16fr) minmax(320px, 0.84fr);
+        align-items: center;
+        gap: 3.2rem;
       }
 
-      .btn-dash {
-        border-radius: 999px;
-        padding-inline: 1.4rem;
-        padding-block: 0.55rem;
-        font-weight: 600;
-        font-size: 0.9rem;
-        background-color: var(--brand-accent-2);
-        border-color: transparent;
-        color: #022c22;
-        box-shadow: 0 10px 26px rgba(16, 185, 129, 0.25);
-        text-decoration: none;
+      .hero-copy h1 {
+        max-width: 760px;
+        margin: 0 0 1rem;
+        color: var(--brand-deep);
+        font-size: clamp(2.15rem, 5vw, 4.25rem);
+        font-weight: 720;
+        letter-spacing: -0.045em;
+        line-height: 1.02;
       }
 
-      .btn-dash:hover {
-        filter: brightness(1.04);
-        color: #022c22;
+      .hero-copy > p {
+        max-width: 760px;
+        margin: 0;
+        color: #526171;
+        font-size: 1.04rem;
+        line-height: 1.7;
       }
 
-      .pill-list {
+      .hero-pills {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.4rem;
-        margin-top: 1rem;
+        gap: 0.5rem;
+        margin-top: 1.25rem;
       }
 
-      .pill-list span {
-        font-size: 0.78rem;
-        padding: 0.25rem 0.75rem;
+      .hero-pills span {
+        padding: 0.38rem 0.82rem;
+        border: 1px solid rgba(0, 59, 64, 0.12);
         border-radius: 999px;
-        background: #e5f5f2;
-        color: #065f46;
-      }
-
-      .info-card {
-        background: #ffffff;
-        border-radius: 1rem;
-        padding: 1.2rem;
-        box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
-        font-size: 0.88rem;
-        color: var(--text-muted);
-      }
-
-      .section {
-        padding: 0 0 3.5rem;
-      }
-
-      .download-panel {
-        margin-top: 1.6rem;
-        padding: 2rem;
-        border-radius: 1.25rem;
-        color: #ffffff;
-        background: linear-gradient(135deg, var(--brand-dark) 0%, #075b60 100%);
-        box-shadow: 0 20px 44px rgba(0, 59, 64, 0.2);
-      }
-
-      .download-panel .section-eyebrow {
-        color: #8cebd2;
-      }
-
-      .download-panel h2 {
-        margin-bottom: 0.45rem;
-        font-size: 1.45rem;
+        color: #075d55;
+        background: rgba(255, 255, 255, 0.78);
+        font-size: 0.8rem;
         font-weight: 650;
       }
 
-      .download-panel > p {
-        max-width: 780px;
-        margin-bottom: 1.35rem;
-        color: rgba(255, 255, 255, 0.78);
+      .demo-card {
+        position: relative;
+        padding: 1.75rem;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 1.35rem;
+        color: #ffffff;
+        background: linear-gradient(145deg, var(--brand-dark), #075e62);
+        box-shadow: 0 24px 55px rgba(0, 59, 64, 0.23);
       }
 
-      .download-options {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 1rem;
+      .demo-card .eyebrow {
+        color: #8cebd2;
       }
 
-      .download-option {
-        display: flex;
-        flex-direction: column;
-        gap: 0.7rem;
-        padding: 1rem;
-        border: 1px solid rgba(255, 255, 255, 0.16);
-        border-radius: 0.9rem;
-        background: rgba(255, 255, 255, 0.08);
+      .demo-card h2 {
+        margin: 0 0 0.55rem;
+        font-size: 1.45rem;
+        font-weight: 680;
       }
 
-      .download-option p {
-        margin: 0;
+      .demo-card p {
+        margin: 0 0 1.15rem;
         color: rgba(255, 255, 255, 0.76);
-        font-size: 0.88rem;
+        font-size: 0.91rem;
+        line-height: 1.55;
+      }
+
+      .dataset-switch {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        gap: 0.6rem;
+        margin-bottom: 1.25rem;
+      }
+
+      .dataset-switch span:not(.switch-icon) {
+        padding: 0.72rem 0.55rem;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 0.75rem;
+        background: rgba(255, 255, 255, 0.08);
+        font-size: 0.78rem;
+        font-weight: 650;
+        text-align: center;
+      }
+
+      .switch-icon {
+        color: #8cebd2;
+        font-weight: 800;
+      }
+
+      .hero-actions {
+        display: grid;
+        gap: 0.65rem;
+      }
+
+      .btn-download,
+      .btn-secondary-link {
+        display: inline-flex;
+        min-height: 46px;
+        align-items: center;
+        justify-content: center;
+        padding: 0.72rem 1.1rem;
+        border-radius: 999px;
+        font-size: 0.9rem;
+        font-weight: 750;
+        text-decoration: none;
+        transition: transform 160ms ease, filter 160ms ease, background 160ms ease;
       }
 
       .btn-download {
-        width: 100%;
-        margin-top: auto;
-        padding: 0.72rem 1rem;
-        border: 0;
-        border-radius: 999px;
         color: #2b160b;
         background: var(--brand-accent);
-        box-shadow: 0 12px 28px rgba(255, 122, 60, 0.28);
-        font-size: 0.92rem;
-        font-weight: 700;
-        text-decoration: none;
-        text-align: center;
-        transition: transform 160ms ease, filter 160ms ease;
+        box-shadow: 0 12px 26px rgba(255, 122, 60, 0.27);
       }
 
       .btn-download:hover {
@@ -261,142 +256,402 @@
         transform: translateY(-1px);
       }
 
-      .showcase-heading {
-        margin-bottom: 1.25rem;
+      .btn-secondary-link {
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        color: #ffffff;
+        background: transparent;
       }
 
-      .showcase-card {
-        overflow: hidden;
-        margin: 0 0 1.5rem;
-        border: 1px solid #e5e7eb;
-        border-radius: 1.1rem;
+      .btn-secondary-link:hover {
+        color: #ffffff;
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .download-note {
+        margin: 0.8rem 0 0 !important;
+        color: rgba(255, 255, 255, 0.62) !important;
+        font-size: 0.75rem !important;
+      }
+
+      .section {
+        padding: 4rem 0;
+      }
+
+      .section-white {
         background: #ffffff;
-        box-shadow: 0 14px 34px rgba(15, 23, 42, 0.07);
       }
 
-      .showcase-copy {
-        padding: 1.35rem 1.5rem 1.2rem;
+      .section-heading {
+        max-width: 830px;
+        margin: 0 0 0.65rem;
+        color: var(--brand-deep);
+        font-size: clamp(1.65rem, 3vw, 2.45rem);
+        font-weight: 700;
+        letter-spacing: -0.025em;
       }
 
-      .showcase-index {
+      .section-intro {
+        max-width: 800px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.98rem;
+        line-height: 1.65;
+      }
+
+      .overview-card {
+        overflow: hidden;
+        margin-top: 1.6rem;
+        border: 1px solid var(--line);
+        border-radius: 1.25rem;
+        background: #ffffff;
+        box-shadow: 0 18px 44px rgba(15, 23, 42, 0.08);
+      }
+
+      .overview-copy {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: end;
+        gap: 2rem;
+        padding: 1.35rem 1.5rem;
+      }
+
+      .view-number {
         display: inline-block;
         margin-bottom: 0.45rem;
-        padding: 0.18rem 0.62rem;
-        border-radius: 999px;
-        color: #065f46;
-        background: #e5f5f2;
+        color: #0a6c60;
         font-size: 0.72rem;
-        font-weight: 700;
-        letter-spacing: 0.12em;
+        font-weight: 750;
+        letter-spacing: 0.13em;
         text-transform: uppercase;
       }
 
-      .showcase-copy h2 {
-        margin-bottom: 0.35rem;
-        font-size: 1.25rem;
-        font-weight: 650;
+      .overview-copy h3,
+      .feature-copy h3 {
+        margin: 0 0 0.35rem;
+        color: var(--ink);
+        font-size: 1.2rem;
+        font-weight: 680;
       }
 
-      .showcase-copy p {
-        max-width: 900px;
+      .overview-copy p,
+      .feature-copy p {
         margin: 0;
-        color: var(--text-muted);
-        font-size: 0.92rem;
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.55;
       }
 
-      .showcase-media {
-        display: block;
-        border-top: 1px solid #e5e7eb;
-        background: #eef2f7;
+      .text-link {
+        color: var(--brand-dark);
+        font-size: 0.82rem;
+        font-weight: 700;
         text-decoration: none;
+        white-space: nowrap;
       }
 
-      .showcase-media img {
+      .text-link:hover {
+        color: #08756b;
+      }
+
+      .screenshot-link {
+        position: relative;
+        display: block;
+        overflow: hidden;
+        border-top: 1px solid var(--line);
+        background: #eaf0f4;
+      }
+
+      .screenshot-link img {
         display: block;
         width: 100%;
         height: auto;
+        transition: transform 220ms ease;
       }
 
-      .showcase-link-note {
-        display: block;
-        padding: 0.55rem 1rem;
-        color: var(--brand-dark);
+      .screenshot-link:hover img {
+        transform: scale(1.006);
+      }
+
+      .feature-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1.5rem;
+        margin-top: 1.6rem;
+      }
+
+      .feature-card {
+        display: flex;
+        min-width: 0;
+        flex-direction: column;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 1.1rem;
         background: #ffffff;
-        font-size: 0.78rem;
-        font-weight: 650;
-        text-align: right;
+        box-shadow: 0 13px 32px rgba(15, 23, 42, 0.065);
       }
 
-      .hosted-section {
-        margin-top: 2.5rem;
-        padding-top: 2.5rem;
-        border-top: 1px solid #dbe2ea;
+      .feature-card .screenshot-link {
+        border-top: 0;
+        border-bottom: 1px solid var(--line);
       }
 
-      .hosted-card {
-        border: 1px dashed #cbd5e1;
-        box-shadow: none;
-        background: #f8fafc;
+      .feature-copy {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        padding: 1.2rem 1.25rem 1.25rem;
       }
 
-      .status-badge {
+      .feature-copy .text-link {
         align-self: flex-start;
-        margin-bottom: 0.7rem;
-        padding: 0.24rem 0.65rem;
-        border-radius: 999px;
-        color: #92400e;
-        background: #fef3c7;
-        font-size: 0.72rem;
-        font-weight: 700;
+        margin-top: 1rem;
       }
 
-      .btn-demo {
-        padding: 0.58rem 1rem;
-        border: 1px solid var(--brand-dark);
+      .feature-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+        margin-top: 0.8rem;
+      }
+
+      .feature-tags span {
+        padding: 0.24rem 0.55rem;
         border-radius: 999px;
-        color: var(--brand-dark);
-        background: transparent;
-        font-size: 0.87rem;
+        color: #1b635c;
+        background: var(--brand-soft);
+        font-size: 0.7rem;
         font-weight: 650;
-        text-decoration: none;
-        text-align: center;
       }
 
-      .btn-demo:hover {
+      .comparison-panel {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) repeat(2, minmax(0, 1fr));
+        overflow: hidden;
+        margin-top: 1.7rem;
+        border: 1px solid var(--line);
+        border-radius: 1.15rem;
+        background: #ffffff;
+        box-shadow: 0 14px 34px rgba(15, 23, 42, 0.06);
+      }
+
+      .comparison-heading,
+      .comparison-item {
+        padding: 1.35rem;
+      }
+
+      .comparison-heading {
         color: #ffffff;
         background: var(--brand-dark);
       }
 
-      @media (max-width: 767.98px) {
-        .download-panel {
-          padding: 1.35rem;
-        }
+      .comparison-heading .eyebrow {
+        color: #8cebd2;
+      }
 
-        .download-options {
-          grid-template-columns: 1fr;
-        }
+      .comparison-heading h3,
+      .comparison-item h3 {
+        margin: 0 0 0.4rem;
+        font-size: 1.05rem;
+        font-weight: 680;
+      }
 
-        .showcase-copy {
-          padding: 1.1rem;
-        }
+      .comparison-heading p,
+      .comparison-item p {
+        margin: 0;
+        font-size: 0.86rem;
+        line-height: 1.55;
+      }
+
+      .comparison-heading p {
+        color: rgba(255, 255, 255, 0.72);
+      }
+
+      .comparison-item + .comparison-item {
+        border-left: 1px solid var(--line);
+      }
+
+      .comparison-item p {
+        color: var(--muted);
+      }
+
+      .support-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+        gap: 1.25rem;
+        margin-top: 1.7rem;
+      }
+
+      .support-card {
+        padding: 1.4rem;
+        border: 1px solid var(--line);
+        border-radius: 1.05rem;
+        background: #ffffff;
+        box-shadow: 0 12px 28px rgba(15, 23, 42, 0.055);
+      }
+
+      .support-card h3 {
+        margin: 0 0 0.45rem;
+        font-size: 1.08rem;
+        font-weight: 680;
+      }
+
+      .support-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.88rem;
+        line-height: 1.55;
+      }
+
+      .data-links {
+        display: grid;
+        gap: 0.55rem;
+        margin-top: 1rem;
+      }
+
+      .data-links a {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.8rem;
+        padding: 0.7rem 0.85rem;
+        border: 1px solid #cce0dc;
+        border-radius: 0.75rem;
+        color: var(--brand-dark);
+        background: #f5fbf9;
+        font-size: 0.81rem;
+        font-weight: 680;
+        text-decoration: none;
+      }
+
+      .data-links a:hover {
+        border-color: #96c9bf;
+        background: #edf8f5;
+      }
+
+      .client-points {
+        display: grid;
+        gap: 0.72rem;
+        margin-top: 0.9rem;
+      }
+
+      .client-point {
+        display: grid;
+        grid-template-columns: 1.5rem 1fr;
+        gap: 0.55rem;
+        color: #4f5f6f;
+        font-size: 0.84rem;
+        line-height: 1.45;
+      }
+
+      .client-point span:first-child {
+        color: #0c776a;
+        font-weight: 850;
       }
 
       footer {
-        border-top: 1px solid #e5e7eb;
         padding: 1.4rem 0;
-        font-size: 0.8rem;
+        border-top: 1px solid #e5e7eb;
         color: #6b7280;
         background: #ffffff;
+        font-size: 0.8rem;
+      }
+
+      @media (max-width: 991.98px) {
+        .hero-grid,
+        .support-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-grid {
+          gap: 2rem;
+        }
+
+        .demo-card {
+          max-width: 680px;
+        }
+
+        .comparison-panel {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .comparison-heading {
+          grid-column: 1 / -1;
+        }
+      }
+
+      @media (max-width: 767.98px) {
+        .page-hero {
+          padding: 3rem 0;
+        }
+
+        .section {
+          padding: 3rem 0;
+        }
+
+        .feature-grid,
+        .comparison-panel {
+          grid-template-columns: 1fr;
+        }
+
+        .comparison-heading {
+          grid-column: auto;
+        }
+
+        .comparison-item + .comparison-item {
+          border-top: 1px solid var(--line);
+          border-left: 0;
+        }
+
+        .overview-copy {
+          grid-template-columns: 1fr;
+          gap: 0.8rem;
+        }
+
+        .overview-copy .text-link {
+          white-space: normal;
+        }
+      }
+
+      @media (max-width: 420px) {
+        .dataset-switch {
+          grid-template-columns: 1fr;
+        }
+
+        .switch-icon {
+          transform: rotate(90deg);
+          text-align: center;
+        }
+
+        .demo-card {
+          padding: 1.3rem;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        .screenshot-link img,
+        .btn-download,
+        .btn-secondary-link {
+          transition: none;
+        }
       }
     </style>
   </head>
 
   <body>
-    <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="index.html">
-          <img src="logo.png" alt="FoxBurrowAI logo" class="brand-logo" />
+          <img
+            src="logo.png"
+            alt="FoxBurrowAI logo"
+            class="brand-logo"
+            width="743"
+            height="774"
+          />
           <div class="brand-text">
             FoxBurrowAI
             <span>AI data services</span>
@@ -421,9 +676,7 @@
               <a class="nav-link" href="index.html">Overview</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="dashboards.html"
-                >Dashboards</a
-              >
+              <a class="nav-link active" aria-current="page" href="dashboards.html">Dashboards</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="other-projects.html">Other Projects</a>
@@ -436,283 +689,407 @@
       </div>
     </nav>
 
-    <!-- HERO -->
-    <section class="page-hero">
-      <div class="container">
-        <div class="section-eyebrow">Example dashboards</div>
-        <h1 class="section-heading">
-          Manual government codes vs. FoxBurrowAI categorisation
-        </h1>
-
-        <p class="section-intro">
-          Two dashboards built from the same public-sector invoice dataset:
-          one using original government coding, the other using FoxBurrowAI’s
-          automated categorisation workflow. Note the retagging was done with no
-          guidance from the original categorisation.
-        </p>
-
-        <div class="pill-list">
-          <span>No login required</span>
-          <span>Interactive filters</span>
-          <span>CSV export available</span>
-        </div>
-
-        <div class="download-panel">
-          <div class="section-eyebrow">Download and try them</div>
-          <h2>Run the complete dashboards locally</h2>
-          <p>
-            These self-contained dashboard packages are the best way to explore
-            every filter, drill-down and export. Download either version as a ZIP
-            and run it offline — no account or shared server required.
-          </p>
-
-          <div class="download-options">
-            <div class="download-option">
-              <div>
-                <strong>Original government coding</strong>
-                <p>Explore the source data using its supplied public-sector categories.</p>
-              </div>
-              <a
-                class="btn-download"
-                href="https://github.com/AlexN159/FoxBurrowAI/releases/download/FoxburrowAI/GOV.zip"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Download GOV dashboard (ZIP) ↓
-              </a>
-            </div>
-
-            <div class="download-option">
-              <div>
-                <strong>FoxBurrowAI retagging</strong>
-                <p>Explore the same invoices after AI-assisted recategorisation.</p>
-              </div>
-              <a
-                class="btn-download"
-                href="https://github.com/AlexN159/FoxBurrowAI/releases/download/FoxburrowAI/RETAG.zip"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Download RETAG dashboard (ZIP) ↓
-              </a>
+    <main>
+      <section class="page-hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <div class="eyebrow">FoxBurrowAI Spend Explorer V2</div>
+            <h1>One procurement dashboard. Two ways to understand the same spend.</h1>
+            <p>
+              Explore 47,075 public-sector procurement records using either the
+              government’s original human-assigned categories or FoxBurrowAI’s
+              independent AI categorisation. Every worksheet shares the same
+              filters, turning a static spend file into a connected analytical workspace.
+            </p>
+            <div class="hero-pills" aria-label="Dashboard highlights">
+              <span>8 connected worksheets</span>
+              <span>Switchable signed datasets</span>
+              <span>Runs locally</span>
+              <span>No login required</span>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- DASHBOARD SHOWCASE -->
-    <section class="section">
-      <div class="container">
-        <div class="showcase-heading">
-          <div class="section-eyebrow">Inside the dashboard</div>
-          <h2 class="section-heading">Explore spend from overview to detail</h2>
+          <aside class="demo-card" aria-labelledby="demo-download-heading">
+            <div class="eyebrow">Free combined demonstration</div>
+            <h2 id="demo-download-heading">Compare both categorisations offline.</h2>
+            <p>
+              The signed Windows edition contains both verified datasets in one
+              package. Switch between them without uploading procurement data or
+              connecting to a FoxBurrowAI server.
+            </p>
+            <div class="dataset-switch" aria-label="Included demonstration datasets">
+              <span>Government human coding</span>
+              <span class="switch-icon" aria-hidden="true">⇄</span>
+              <span>FoxBurrowAI AI coding</span>
+            </div>
+            <div class="hero-actions">
+              <a
+                class="btn-download"
+                href="https://github.com/AlexN159/FoxBurrowAI/releases/download/FoxburrowAI/FoxBurrowAI-Combined-Demo.zip"
+              >
+                Download the combined demo (ZIP) ↓
+              </a>
+              <a
+                class="btn-secondary-link"
+                href="https://github.com/AlexN159/FoxBurrowAI"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View the project on GitHub ↗
+              </a>
+            </div>
+            <p class="download-note">
+              Windows · extract the complete ZIP · open “OPEN DASHBOARD.cmd”
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="overview-heading">
+        <div class="container">
+          <div class="eyebrow">Connected exploration</div>
+          <h2 class="section-heading" id="overview-heading">Start with the whole picture, then narrow the question.</h2>
           <p class="section-intro">
-            Each view shares the same filters, so you can move from a high-level
-            trend into category and supplier detail without losing context.
-            Select any screenshot to open the full-resolution view.
+            Supplier, department, date, category and currency filters flow through
+            every view. Summary metrics update alongside the charts, so the scale
+            and context of the filtered population stay visible.
           </p>
+
+          <figure class="overview-card">
+            <figcaption class="overview-copy">
+              <div>
+                <span class="view-number">Dashboard 01 · Spend overview</span>
+                <h3>Total Spend Over Time</h3>
+                <p>
+                  Follow monthly spend, identify peaks and retain a clear KPI summary
+                  of transactions, suppliers, departments and average transaction value.
+                </p>
+              </div>
+              <a class="text-link" href="dashboard-overview-v2.png" target="_blank" rel="noopener noreferrer">
+                Open full-size screenshot ↗
+              </a>
+            </figcaption>
+            <a
+              class="screenshot-link"
+              href="dashboard-overview-v2.png"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open the Total Spend Over Time dashboard screenshot at full size"
+            >
+              <img
+                src="dashboard-overview-v2.png"
+                alt="FoxBurrowAI Spend Explorer showing global filters, KPI totals and a monthly total-spend line chart"
+                width="3333"
+                height="1368"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+              />
+            </a>
+          </figure>
         </div>
+      </section>
 
-        <figure class="showcase-card">
-          <figcaption class="showcase-copy">
-            <span class="showcase-index">View 01</span>
-            <h2>See the full spend picture</h2>
-            <p>
-              Track total spend by month, then use supplier, department, year,
-              category-level and currency filters to isolate the slice you need.
-              The overview makes peaks, dips and changes in direction easy to spot.
-            </p>
-          </figcaption>
-          <a
-            class="showcase-media"
-            href="dashboard-total-spend.png"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open the total spend dashboard screenshot at full resolution"
-          >
-            <img
-              src="dashboard-total-spend.png"
-              alt="Spend Dashboard showing total spend over time as a monthly line chart"
-              width="3833"
-              height="1293"
-              loading="lazy"
-              decoding="async"
-            />
-            <span class="showcase-link-note">Open full-size screenshot ↗</span>
-          </a>
-        </figure>
+      <section class="section section-white" aria-labelledby="core-heading">
+        <div class="container">
+          <div class="eyebrow">Core procurement views</div>
+          <h2 class="section-heading" id="core-heading">Move from categories to the suppliers behind them.</h2>
+          <p class="section-intro">
+            Charts and tables are designed to work together. Selecting a category or
+            supplier updates the shared filters, while reset controls make it easy to
+            return to the broader view.
+          </p>
 
-        <figure class="showcase-card">
-          <figcaption class="showcase-copy">
-            <span class="showcase-index">View 02</span>
-            <h2>Drill through the category hierarchy</h2>
-            <p>
-              Compare the service groups driving spend in a stacked area chart.
-              Choose how many categories to display, then drill from broad L1
-              groups through the hierarchy and back up again when needed.
-            </p>
-          </figcaption>
-          <a
-            class="showcase-media"
-            href="dashboard-hierarchical-area.png"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open the hierarchical area dashboard screenshot at full resolution"
-          >
-            <img
-              src="dashboard-hierarchical-area.png"
-              alt="Spend Dashboard showing an interactive hierarchical stacked area chart"
-              width="3161"
-              height="1252"
-              loading="lazy"
-              decoding="async"
-            />
-            <span class="showcase-link-note">Open full-size screenshot ↗</span>
-          </a>
-        </figure>
+          <div class="feature-grid">
+            <article class="feature-card">
+              <a
+                class="screenshot-link"
+                href="dashboard-hierarchy-v2.png"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open the Hierarchical Area Chart dashboard screenshot at full size"
+              >
+                <img
+                  src="dashboard-hierarchy-v2.png"
+                  alt="Hierarchical Area Chart with category drill controls, a stacked monthly area chart and clickable category totals"
+                  width="2983"
+                  height="1348"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </a>
+              <div class="feature-copy">
+                <span class="view-number">Dashboard 02</span>
+                <h3>Hierarchical Area Chart</h3>
+                <p>
+                  Drill from broad L1 categories through the detailed taxonomy by
+                  clicking either the chart or category-total table. The visible
+                  filters follow the drill path and can be stepped back or reset.
+                </p>
+                <div class="feature-tags">
+                  <span>Click to drill</span>
+                  <span>Synced filters</span>
+                  <span>Category totals</span>
+                </div>
+                <a class="text-link" href="dashboard-hierarchy-v2.png" target="_blank" rel="noopener noreferrer">Open full-size screenshot ↗</a>
+              </div>
+            </article>
 
-        <figure class="showcase-card">
-          <figcaption class="showcase-copy">
-            <span class="showcase-index">View 03</span>
-            <h2>Find the suppliers driving spend</h2>
-            <p>
-              Review supplier counts, transaction rows and total value in one
-              place, then rank the detailed supplier table by row count or spend
-              to identify where a closer look will have the most impact.
-            </p>
-          </figcaption>
-          <a
-            class="showcase-media"
-            href="dashboard-key-suppliers.png"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open the key suppliers dashboard screenshot at full resolution"
-          >
-            <img
-              src="dashboard-key-suppliers.png"
-              alt="Spend Dashboard showing supplier summary metrics and a ranked supplier table"
-              width="3823"
-              height="1514"
-              loading="lazy"
-              decoding="async"
-            />
-            <span class="showcase-link-note">Open full-size screenshot ↗</span>
-          </a>
-        </figure>
+            <article class="feature-card">
+              <a
+                class="screenshot-link"
+                href="dashboard-key-suppliers-v2.png"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open the Key Suppliers dashboard screenshot at full size"
+              >
+                <img
+                  src="dashboard-key-suppliers-v2.png"
+                  alt="Key Suppliers worksheet showing a ranked transaction chart and a searchable supplier table with spend values"
+                  width="3033"
+                  height="1554"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </a>
+              <div class="feature-copy">
+                <span class="view-number">Dashboard 03</span>
+                <h3>Key Suppliers</h3>
+                <p>
+                  Rank suppliers by transaction count or observed spend, compare the
+                  visual distribution and search the detailed table to inspect the
+                  organisations driving the selected category.
+                </p>
+                <div class="feature-tags">
+                  <span>Supplier ranking</span>
+                  <span>Searchable table</span>
+                  <span>Spend or row count</span>
+                </div>
+                <a class="text-link" href="dashboard-key-suppliers-v2.png" target="_blank" rel="noopener noreferrer">Open full-size screenshot ↗</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
 
-        <!-- DATA DOWNLOADS -->
-        <div class="row mt-4">
-          <div class="col-lg-9">
-            <div class="dash-card">
-              <div class="dash-tag">Supporting downloads</div>
-              <h2>Use the underlying example data</h2>
+      <section class="section" aria-labelledby="advanced-heading">
+        <div class="container">
+          <div class="eyebrow">Advanced procurement analysis</div>
+          <h2 class="section-heading" id="advanced-heading">Prioritise investigation, understand change and check the evidence.</h2>
+          <p class="section-intro">
+            Four additional worksheets add concentration analysis, supplier-category
+            exposure, period variance and explicit data-quality checks. Each includes
+            a collapsible dashboard explanation describing how to interpret it.
+          </p>
+
+          <div class="feature-grid">
+            <article class="feature-card">
+              <a
+                class="screenshot-link"
+                href="dashboard-opportunity-finder-v2.png"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open the Opportunity Finder dashboard screenshot at full size"
+              >
+                <img
+                  src="dashboard-opportunity-finder-v2.png"
+                  alt="Opportunity Finder with a category opportunity bubble matrix, supplier concentration curve and investigation queue"
+                  width="2942"
+                  height="1313"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </a>
+              <div class="feature-copy">
+                <span class="view-number">Dashboard 04</span>
+                <h3>Opportunity Finder</h3>
+                <p>
+                  Compare category spend, supplier breadth and top-supplier share,
+                  then examine the concentration curve and evidence-based review
+                  signals in the investigation queue.
+                </p>
+                <div class="feature-tags">
+                  <span>Category matrix</span>
+                  <span>Pareto curve</span>
+                  <span>Review signals</span>
+                </div>
+                <a class="text-link" href="dashboard-opportunity-finder-v2.png" target="_blank" rel="noopener noreferrer">Open full-size screenshot ↗</a>
+              </div>
+            </article>
+
+            <article class="feature-card">
+              <a
+                class="screenshot-link"
+                href="dashboard-supplier-portfolio-v2.png"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open the Supplier Portfolio dashboard screenshot at full size"
+              >
+                <img
+                  src="dashboard-supplier-portfolio-v2.png"
+                  alt="Supplier Portfolio with concentration scatter plot, supplier-category exposure heatmap and detailed tables"
+                  width="2908"
+                  height="1262"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </a>
+              <div class="feature-copy">
+                <span class="view-number">Dashboard 05</span>
+                <h3>Supplier Portfolio</h3>
+                <p>
+                  Explore supplier footprint and concentration in a scatter plot,
+                  then use the exposure heatmap to see which selected categories are
+                  represented across the supplier population.
+                </p>
+                <div class="feature-tags">
+                  <span>Supplier footprint</span>
+                  <span>Exposure heatmap</span>
+                  <span>Click to filter</span>
+                </div>
+                <a class="text-link" href="dashboard-supplier-portfolio-v2.png" target="_blank" rel="noopener noreferrer">Open full-size screenshot ↗</a>
+              </div>
+            </article>
+
+            <article class="feature-card">
+              <a
+                class="screenshot-link"
+                href="dashboard-spend-variance-v2.png"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open the Spend Variance dashboard screenshot at full size"
+              >
+                <img
+                  src="dashboard-spend-variance-v2.png"
+                  alt="Spend Variance worksheet comparing adjacent periods with a monthly trend and positive and negative category contributors"
+                  width="2945"
+                  height="1301"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </a>
+              <div class="feature-copy">
+                <span class="view-number">Dashboard 06</span>
+                <h3>Spend Variance</h3>
+                <p>
+                  Compare adjacent months or quarters, quantify the net movement and
+                  identify the categories contributing most to increases and decreases
+                  without silently changing the shared date filters.
+                </p>
+                <div class="feature-tags">
+                  <span>Month or quarter</span>
+                  <span>Variance bridge</span>
+                  <span>Category drivers</span>
+                </div>
+                <a class="text-link" href="dashboard-spend-variance-v2.png" target="_blank" rel="noopener noreferrer">Open full-size screenshot ↗</a>
+              </div>
+            </article>
+
+            <article class="feature-card">
+              <a
+                class="screenshot-link"
+                href="dashboard-data-quality-v2.png"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open the Data Quality dashboard screenshot at full size"
+              >
+                <img
+                  src="dashboard-data-quality-v2.png"
+                  alt="Data Quality worksheet showing currency and hierarchy coverage, an exception profile and issue tables"
+                  width="2984"
+                  height="1250"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </a>
+              <div class="feature-copy">
+                <span class="view-number">Dashboard 07</span>
+                <h3>Data Quality</h3>
+                <p>
+                  Check currency-value coverage, hierarchy completeness and documented
+                  exception types before treating analytical signals as decision-ready.
+                  Select an issue to inspect its affected records locally.
+                </p>
+                <div class="feature-tags">
+                  <span>Coverage metrics</span>
+                  <span>Exception profile</span>
+                  <span>Record inspection</span>
+                </div>
+                <a class="text-link" href="dashboard-data-quality-v2.png" target="_blank" rel="noopener noreferrer">Open full-size screenshot ↗</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-white" aria-labelledby="comparison-heading">
+        <div class="container">
+          <div class="eyebrow">What the demonstration compares</div>
+          <h2 class="section-heading" id="comparison-heading">The records stay the same. The category lens changes.</h2>
+          <p class="section-intro">
+            The combined demo is designed to make the classification difference
+            inspectable rather than presenting it as a black-box claim.
+          </p>
+
+          <div class="comparison-panel">
+            <div class="comparison-heading">
+              <div class="eyebrow">One signed dashboard</div>
+              <h3>Switch datasets in place</h3>
+              <p>Every view and interaction is available for both verified versions.</p>
+            </div>
+            <div class="comparison-item">
+              <h3>Government 2012 · human categorisation</h3>
+              <p>The original public-sector procurement records using the government’s supplied human-assigned categories.</p>
+            </div>
+            <div class="comparison-item">
+              <h3>FoxBurrowAI 2012 · AI categorisation</h3>
+              <p>The same procurement records independently categorised by FoxBurrowAI, without guidance from the original labels.</p>
+            </div>
+          </div>
+
+          <div class="support-grid">
+            <div class="support-card">
+              <div class="eyebrow">Supporting data</div>
+              <h3>Inspect the example datasets directly.</h3>
               <p>
-                Download the original and recategorised datasets used to build
-                the dashboards, or review 100 detailed classification examples.
+                The public source data and detailed classification examples remain
+                available for independent review in Excel or compatible tools.
               </p>
-
-              <div class="d-flex flex-column gap-2 mt-3">
-                <a
-                  class="btn btn-dash"
-                  href="data/Cali_data_Original_Classification.csv"
-                  download
-                >
-                  Download original classification (CSV)
+              <div class="data-links">
+                <a href="data/Cali_data_Original_Classification.csv" download>
+                  <span>Original government classification (CSV)</span><span aria-hidden="true">↓</span>
                 </a>
-
-                <a
-                  class="btn btn-dash"
-                  href="data/Cali_data_FoxBurrowAI_Retagged_Classification.xlsx"
-                  download
-                >
-                  Download FoxBurrowAI retagged data (Excel)
+                <a href="data/Cali_data_FoxBurrowAI_Retagged_Classification.xlsx" download>
+                  <span>FoxBurrowAI retagged classification (Excel)</span><span aria-hidden="true">↓</span>
                 </a>
-
-                <a
-                  class="btn btn-dash"
-                  href="data/DetailedClassificationExamples.xlsx"
-                  download
-                >
-                  Download 100 detailed classification examples with explanations (Excel)
+                <a href="data/DetailedClassificationExamples.xlsx" download>
+                  <span>100 classification examples with explanations (Excel)</span><span aria-hidden="true">↓</span>
                 </a>
-              </div>
-
-              <div class="dash-meta">
-                Files open locally in Excel or compatible tools.
               </div>
             </div>
-          </div>
-        </div>
 
-        <!-- INFO -->
-        <div class="row mt-4">
-          <div class="col-lg-9">
-            <div class="info-card">
-              <strong>How this translates to client work</strong>
-              <p class="mt-2 mb-0">
-                Dashboards can be delivered as hosted URLs or fully offline,
-                self-contained applications — no accounts or shared servers
-                required.
+            <div class="support-card">
+              <div class="eyebrow">Client delivery model</div>
+              <h3>Portable dashboards without a hosted dependency.</h3>
+              <p>
+                Client editions can be delivered with one or more verified datasets
+                locked to the package, while keeping the source data on the recipient’s machine.
               </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- HOSTED DASHBOARDS -->
-        <div class="hosted-section">
-          <div class="section-eyebrow">Older hosted previews</div>
-          <h2 class="section-heading">Online dashboard links</h2>
-          <p class="section-intro mb-4">
-            These hosted demos are currently inconsistent and may be slow or
-            unavailable. They remain here for reference, but the downloadable
-            versions above are the recommended way to try the dashboards.
-          </p>
-
-          <div class="row g-4">
-            <div class="col-lg-6">
-              <div class="dash-card hosted-card">
-                <span class="status-badge">May be unavailable</span>
-                <div class="dash-tag">Baseline hosted preview</div>
-                <h2>Government-coded spend</h2>
-                <p>Original public-sector categorisations as supplied.</p>
-                <a
-                  class="btn-demo mt-auto"
-                  href="http://gov.vfish.niemira.com:7070/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Try hosted baseline
-                </a>
-              </div>
-            </div>
-
-            <div class="col-lg-6">
-              <div class="dash-card hosted-card">
-                <span class="status-badge">May be unavailable</span>
-                <div class="dash-tag">FoxBurrowAI hosted preview</div>
-                <h2>AI-retagged spend</h2>
-                <p>Same invoices, fully reclassified using AI-assisted review.</p>
-                <a
-                  class="btn-demo mt-auto"
-                  href="http://retag.vfish.niemira.com:7070/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Try hosted FoxBurrowAI version
-                </a>
+              <div class="client-points">
+                <div class="client-point"><span>✓</span><span>One or several approved datasets in a switchable dashboard.</span></div>
+                <div class="client-point"><span>✓</span><span>No FoxBurrowAI account, subscription or always-on server required.</span></div>
+                <div class="client-point"><span>✓</span><span>Future signed data refreshes can be supplied without rebuilding the analytical experience.</span></div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
-    <!-- FOOTER -->
     <footer>
-      <div class="container d-flex justify-content-between">
-        <div>© 2025 FoxBurrowAI</div>
-        <div>Example dashboards built with Plotly Dash</div>
+      <div class="container d-flex flex-column flex-sm-row justify-content-between gap-2">
+        <div>© 2026 FoxBurrowAI</div>
+        <div>Procurement analytics built with Plotly Dash</div>
       </div>
     </footer>
 
